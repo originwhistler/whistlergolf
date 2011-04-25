@@ -1,0 +1,11 @@
+%h2 Course Gallery
+%p
+  To request high quality versions of these images please contact 
+  = link_to "Ro Davies",  "mailto:ro@whistlergolf.com"
+#slideshow
+%script{ :type => "text/javascript" }
+  var flashvars = {};
+  var params = {wmode: 'opaque'};
+  var attributes = {};
+
+  swfobject.embedSWF("/flash/coursegallery.swf", "slideshow", "530", "515", "9.0.0","/flash/swfobject/expressInstall.swf", flashvars, params, attributes);

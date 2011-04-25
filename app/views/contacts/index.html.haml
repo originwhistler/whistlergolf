@@ -1,0 +1,51 @@
+%h1
+  Listing contacts
+%table
+  %tr
+    %th
+      First name
+    %th
+      Last name
+    %th
+      Street address
+    %th
+      City
+    %th
+      Province
+    %th
+      Postal code
+    %th
+      Telephone
+    %th
+      Email
+    %th
+      Comments
+  - for contact in @contacts
+    %tr
+      %td
+        = h contact.first_name
+      %td
+        = h contact.last_name
+      %td
+        = h contact.street_address
+      %td
+        = h contact.city
+      %td
+        = h contact.province
+      %td
+        = h contact.postal_code
+      %td
+        = h contact.telephone
+      %td
+        = h contact.email
+      %td
+        = h contact.comments
+      %td
+        = link_to 'Show', contact
+      %td
+        = link_to 'Edit', edit_contact_path(contact)
+      %td
+        = link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete
+
+%br/
+= link_to 'New contact', new_contact_path

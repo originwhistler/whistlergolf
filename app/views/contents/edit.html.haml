@@ -1,0 +1,42 @@
+
+
+
+
+.form
+  %h2.column.span-3 Editing content
+  - form_for(@content, :html => { :multipart => true }) do |f|
+    = f.error_messages
+    %p.column.span-3
+      = f.label :title
+      = @content.title  
+    .clear
+    .clear
+      %h2 Code
+
+      = f.text_area :text
+    - if @content.title.include? 'Contest'
+      %p Contest entry should contain a span for emphasis on page ie) *span*BOLD TEXT*span*
+    .clear    
+    
+    
+    = link_to 'Markdown Syntax', '/markdown.html', :class => 'lightwindow'
+    .clear
+    = image_tag @content.attachment.url
+    %p
+      = f.label :attachment
+      %br/
+      = f.file_field :attachment
+    .clear      
+    %p
+      = f.submit "Update"
+
+.preview-wrapper
+  %h2 Live Preview
+  .wmd-preview
+  
+.rule
+= link_to 'Show', @content
+|
+= link_to 'Back', contents_path
+
+.rule

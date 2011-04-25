@@ -1,0 +1,17 @@
+<ul class="dash-strip module-first">
+	<?php if (count($shows) === 0): ?>
+		<li><?php __('You have no slideshows.'); ?></li>
+	<?php else: ?>
+			<?php $i = 1; $count = count($shows); foreach($shows as $show): ?>
+				<li> 
+					<?php if ($user['perms'] > 1): ?>                               						
+						<button type="button" class="primary_sm right" title="<?php __('Delete'); ?>" onclick="delete_slideshow(<?php e($show['Slideshow']['id']) ?>); return false;"><?php __('Delete'); ?></button>   
+					<?php endif; ?>  
+						
+					<button type="button" class="primary_sm right nudgeR" title="<?php __('View'); ?>" onclick="fetch_slideshow('<?php e($show['Slideshow']['url']); ?>')"><?php __('View'); ?></button>	
+												
+					<?php e(htmlspecialchars($show['Slideshow']['name'])); ?>	
+				</li>
+			<?php $i++; endforeach; ?>
+	<?php endif; ?>
+</ul>

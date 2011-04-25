@@ -1,0 +1,12 @@
+- if logged_in?
+  #passholder-bar-greeting
+    Logged in as
+    = link_to_current_passholder :content_method => :login
+  #passholder-bar-action
+    = link_to("Log out", logout_path, { :title => "Log out" })
+- else
+  #passholder-bar-greeting
+    = link_to_login_with_IP 'Not logged in', :style => 'border: none;'
+  #passholder-bar-action
+    = link_to "Log in",  login_path,  { :title => "Log in" }
+    = link_to "Sign up", signup_path, { :title => "Create an account" }

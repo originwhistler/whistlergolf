@@ -1,0 +1,18 @@
+- @page_class = 'home'
+
+- @meta_title = "Whistler Golf Club"
+- @meta_description = "Whistler Golf Club is the first championship designed golf course in Whistler by Arnold Palmer with golf rates, packages, tournaments, and an award winning golf shop."
+- @meta_keywords = "whistler, golf, ski, resort, tourism, blackcomb, tee time, club, Arnold Palmer, vacation, vancouver, british columbia, bc, canada, holiday, golf shop, rates, packages, lessons, tournaments, golfing, hotels, accommodation, reservations, 2010"
+
+
+- content_for :branding do
+  #slideshow
+  %script{ :type => "text/javascript" }
+    var flashvars = {};
+    var params = {wmode: 'opaque'};
+    var attributes = {};
+  
+    swfobject.embedSWF("/flash/main_image_slideshow/main_images_new.swf", "slideshow", "940", "296", "9.0.0","/flash/swfobject/expressInstall.swf", flashvars, params, attributes);
+ 
+%h1 A new brand of golf 
+%p Welcome to the Arnold Palmer-designed Whistler Golf Club, one of Canada’s top ranked golf courses. We’ve put the fun back in golf, without sacrificing outstanding service, superb conditioning or a championship design. It’s golf that is uniquely Whistler. A favourite for Whistler weddings, banquets, tournaments, lessons, golf schools and golf and stay packages, the Whistler Golf Club is the choice for exceptional golf experiences.

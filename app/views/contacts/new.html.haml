@@ -1,0 +1,13 @@
+%h1 Contact Whistler Golf
+-content_for :side do
+  %h2 Contact Information
+  %p Alan Kristmanson, Director of Golf <br/> 604-938-5887, <a href="mailto: alan@whistlergolf.com">alan@whistlergolf.com</a>
+  %p Ro Davies, Sales Manager<br/> 604-938-5886, <a href="mailto: ro@whistlergolf.com">ro@whistlergolf.com</a>
+  %p Dave Gottselig, Golf Course Superintendent<br/> 604-938-5884, <a href="mailto: dave@whistlergolf.com">dave@whistlergolf.com</a>
+  %p Luc Binette, Golf Operations Manager<br/> 604-938-5880. <a href="mailto: luc@whistlergolf.com">luc@whistlergolf.com</a>
+
+- form_for(@contact) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  .clear
+  %p
+    = f.submit "Submit Contact"

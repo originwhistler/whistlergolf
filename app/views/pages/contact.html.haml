@@ -1,0 +1,45 @@
+%h1 Contact Whistler Golf
+-content_for :side do
+
+  %h2 Contact Information
+  %p Toll Free: 1-800-376-1777<br />Local: 604-932-3280
+  %p 4001 Whistler Way<br />Whistler, BC, V0N 1B4
+  %p Alan Kristmanson, Director of Golf <br/> 604-938-5887, <a href="mailto: alan@whistlergolf.com">alan@whistlergolf.com</a>
+  %p Ro Davies, Sales Manager<br/> 604-938-5886, <a href="mailto: ro@whistlergolf.com">ro@whistlergolf.com</a>
+  %p Dave Gottselig, Golf Course Superintendent<br/> 604-938-5884, <a href="mailto: dave@whistlergolf.com">dave@whistlergolf.com</a>
+  %p Luc Binette, Golf Operations Manager<br/> 604-938-5880. <a href="mailto: luc@whistlergolf.com">luc@whistlergolf.com</a>
+
+- form_for(@contact, :url => contact_path) do |f|
+  
+  = f.error_messages
+  %p
+    = f.label :first_name
+    = f.text_field :first_name
+  %p
+    = f.label :last_name
+    = f.text_field :last_name
+  %p
+    = f.label :street_address
+    = f.text_field :street_address
+  %p
+    = f.label :city
+    = f.text_field :city
+  %p
+    = f.label :province
+    = f.text_field :province
+  %p
+    = f.label :postal_code
+    = f.text_field :postal_code
+  %p
+    = f.label :telephone
+    = f.text_field :telephone
+  %p
+    = f.label :email
+    = f.text_field :email
+  %p
+    = f.label :comments
+    = f.text_area :comments
+
+  .clear
+  %p
+    = f.submit "Submit Contact"

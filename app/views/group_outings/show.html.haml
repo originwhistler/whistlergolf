@@ -1,0 +1,92 @@
+- if show_admin_content?
+  %p
+    %b
+      First name:
+    = h @group_outing.first_name
+  %p
+    %b
+      Last name:
+    = h @group_outing.last_name
+  %p
+    %b
+      Email type:
+    = h @group_outing.email_type
+  %p
+    %b
+      Email:
+    = h @group_outing.email
+  %p
+    %b
+      Phone type:
+    = h @group_outing.phone_type
+  %p
+    %b
+      Area code:
+    = h @group_outing.area_code
+  %p
+    %b
+      Phone number:
+    = h @group_outing.phone_number
+  %p
+    %b
+      Country:
+    = h @group_outing.country
+  %p
+    %b
+      Address type:
+    = h @group_outing.address_type
+  %p
+    %b
+      Street 1:
+    = h @group_outing.street_1
+  %p
+    %b
+      Street 2:
+    = h @group_outing.street_2
+  %p
+    %b
+      City:
+    = h @group_outing.city
+  %p
+    %b
+      Province:
+    = h @group_outing.province
+  %p
+    %b
+      Postal code:
+    = h @group_outing.postal_code
+  %p
+    %b
+      Country address:
+    = h @group_outing.country_address
+  %p
+    %b
+      Event length:
+    = h @group_outing.event_length
+  %p
+    %b
+      Number of attendees:
+    = h @group_outing.number_of_attendees
+  %p
+    %b
+      Held event before:
+    = h @group_outing.held_event_before
+  %p
+    %b
+      Decision maker:
+    = h @group_outing.decision_maker
+  %p
+    %b
+      Contact method:
+    = h @group_outing.contact_method
+  %p
+    %b
+      Referred by:
+    = h @group_outing.referred_by
+  %p
+    %b
+      Comments:
+    = h @group_outing.comments
+  = link_to 'Edit', edit_group_outing_path(@group_outing)
+  |
+  = link_to 'Back', group_outings_path

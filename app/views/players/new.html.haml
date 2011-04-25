@@ -1,0 +1,38 @@
+
+%h2 WELCOME TO THE PLAYER'S CLUB 
+
+
+%h3 Member Sign in 
+
+- form_for :session, :url => session_path do |form|
+  .text_field.column.span-6
+    = form.label :email 
+    = form.text_field :email 
+  .text_field.column.span-5
+    = form.label :password 
+    = form.password_field :password
+  .clear
+  .submit_field.column.span-2
+    = form.submit "Sign in", :disable_with => "Please wait..."
+  .column.span-2
+    %label
+      = form.check_box :remember_me, :style => ''
+      Remember Me
+  .clear
+  .forgot_password
+    = link_to "Forgot / Change Password", new_password_path
+
+%hr
+.column.span-6
+  %h3 JOIN AND SAVE!
+
+  %p Open to BC and Washington State residents, the Player's Club offers member-only rates two weeks in advance of play. Rates are based on availability and are updated every 5 minutes. Tee times may be booked online only. 
+  %p Player’s Club members receive email updates with extra value perks throughout the season. If you live in Whistler or visit often, then the Player's Club is for you.
+  %br
+
+.column.span-5
+  %h3 New member registration
+  - form_for @player do |form|
+    = render :partial => '/users/form', :object => form 
+    = form.submit 'Sign up', :disable_with => 'Please wait...'
+

@@ -1,0 +1,34 @@
+- unless hole.nil?
+  .hole.hole_card
+    %img{:src => hole_image_for(hole)}
+    %h3 Par & Handicaps
+
+    .stat
+      %b Par
+      %span= hole['par']
+
+    .stat
+      %b Men's Handicap	
+      %span= hole['handicap_mens']
+
+    .stat
+      %b Women's Handicap
+      %span= hole['handicap_womens']
+
+    %h3 Yardage
+
+    .stat
+      %b Forward Tees
+      %span= hole['forward_tees']
+
+    .stat
+      %b Palmer Tees
+      %span= hole['palmer_tees']
+
+    .stat
+      %b Tournament Tees
+      %span= hole['tournament_tees']
+
+    .stat
+      %b Description
+      %p= hole['description']

@@ -1,0 +1,7 @@
+
+%h2 Sign up a Passholder
+
+- form_for @passholder do |form|
+  = render :partial => '/users/form', :object => form 
+  / = form.hidden_field :signuptype, 'pass holder'
+  = form.submit 'Sign up', :disable_with => 'Please wait...'

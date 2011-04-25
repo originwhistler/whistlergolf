@@ -1,0 +1,142 @@
+<div id="page">
+	
+	<div id="container">
+		
+		<div id="head">
+			<h1 class="noicon"><?php __('System Info'); ?></h1>
+		</div>
+	
+		<div id="container-wrap">
+
+			<div class="col-wrap">
+	
+				<div class="left-col">
+					
+					<div class="left-col-inside">
+						<div class="module">
+			
+							<div class="module-head">
+								<h3><?php __('About your installation'); ?></h3>
+							</div>
+						
+							<div class="wrap">
+		   			
+								<div class="content">
+		
+								<ul class="dash-strip module-first">
+									<li><?php printf(__('Your server is running PHP %s.', true), $info['php']); ?></li>
+									<?php if (empty($info['memory'])): ?>
+									<li><?php printf(__("No memory limit is set in PHP.", true), $info['memory']); ?></li>
+									<?php else: ?>
+									<li><?php printf(__("PHP's memory limit is set at %sB.", true), $info['memory']); ?> <a href="http://wiki.slideshowpro.net/SSPdir/CP-MemoryLimit"><?php __('How do I change this?'); ?></a></li>
+									<?php endif; ?>
+									<li><?php printf(__("You are using %s for image processing.", true), $info['processing']); ?></li>
+									<li><?php if ($info['exif'] && $info['iptc']): ?>
+											<?php __('Your server supports the parsing of both IPTC and EXIF data.'); ?>
+										<?php elseif ($info['exif']): ?>
+											<?php __('Your server supports the parsing of EXIF data, but not IPTC data.'); ?>
+										<?php elseif ($info['iptc']): ?>
+											<?php __('Your server supports the parsing of IPTC data, but not EXIF data.'); ?>
+										<?php else: ?>
+											<?php __('Your server does not support the parsing of IPTC or EXIF data.'); ?>
+										<?php endif; ?>
+									<li><?php printf(__("The maximum size for an uploaded file is %sB.", true), $info['max_upload']); ?> 
+																		<?php if ($info['post_max_broken']): ?>
+										<em><?php __("Your post_max_size is set lower than upload_max_filesize, which limits the size of file you may upload."); ?></em>
+									<?php endif; ?> <a href="http://wiki.slideshowpro.net/SSPdir/CP-ImageUploadsDenied"><?php __('How do I change this?'); ?></a>
+									</li>
+								</ul>
+							
+								</div> <!--close content-->
+							
+							</div> <!--close module wrap-->
+					
+						<div class="module-footer">
+							<div>&nbsp;</div>
+						</div>
+						
+					</div> <!--close module-->
+					
+					<div class="module">
+
+						<div class="module-head">
+							<h3><?php __('API information'); ?></h3>
+						</div>
+
+						<div class="wrap">
+
+							<div class="content">
+
+							<ul class="dash-strip module-first">
+								<li class="clearfix">
+									<div style="float:left"><strong>API Key:</strong> local-<?php e($account['Account']['api_key']) ?></div>
+									<?php $id = 'copy-key-button' ?>
+									<div id="<?php e($id); ?>" class="copier"><span id="<?php e($id); ?>_tocopy" style="display:none;">local-<?php e($account['Account']['api_key']) ?></span><button id="<?php e($id) ?>_button" type="button" title="<?php __('Copy'); ?>" class="primary_sm right"><?php __('Copy'); ?></button><div id="<?php e($id) ?>_target" style="position:absolute;top:0;left:0;z-index:1500;"></div></div>									
+								</li>
+
+								<li class="clearfix">
+									<div style="float:left"><strong>API Path:</strong> <?php e(r('http://', '', DIR_HOST)); ?></div>
+									<?php $id = 'copy-path-button' ?>
+									<div id="<?php e($id); ?>" class="copier"><span id="<?php e($id); ?>_tocopy" style="display:none;"><?php e(r('http://', '', DIR_HOST)) ?></span><button id="<?php e($id) ?>_button" type="button" title="<?php __('Copy'); ?>" class="primary_sm right"><?php __('Copy'); ?></button><div id="<?php e($id) ?>_target" style="position:absolute;top:0;left:0;z-index:1500;"></div></div>
+								</li>
+							</ul>
+
+							</div> <!--close content-->
+
+						</div> <!--close module wrap-->
+
+						<div class="module-footer">
+							<div>&nbsp;</div>
+						</div>
+						
+				</div> <!--close module-->
+					
+					</div> <!--close left-col-inside-->
+				
+				</div> <!--close left-col-->
+		
+				<div class="right-col">
+					
+					<div class="right-col-inside">
+
+							<div class="module">
+
+								<div class="module-head">
+									<h3><?php __('Album cache'); ?></h3>
+								</div>
+
+								<div class="wrap">
+
+									<div class="content">
+
+									<ul class="dash-strip module-first">
+										<li><?php printf(__('%s from all album caches.', true), $html->link(__('Clear old files', true), '#', array('onclick' => 'clear_cache(\'' . DIR_HOST . '\', 0); return false;'))); ?> <span class="help">[?]<span><?php __('Director caches copies of images that are requested at specific sizes by your slideshows. This action clears any image in the cache that has not been viewed for 1 week.'); ?></span></span></li>
+
+										<li><?php printf(__('%s from all album caches.', true), $html->link(__('Clear all files', true), '#', array('onclick' => 'clear_cache(\'' . DIR_HOST . '\', 1); return false;'))); ?> <span class="help">[?]<span><?php __('Director caches copies of images that are requested at specific sizes by your slideshows. This action clears all images in the cache, causing your slideshows to regenerate imagery the next time they are loaded.'); ?></span></span></li>
+									</ul>
+
+									</div> <!--close content-->
+
+								</div> <!--close module wrap-->
+
+								<div class="module-footer">
+									<div>&nbsp;</div>
+								</div>
+
+							</div> <!--close module-->
+						
+					</div> <!--close left-col-inside-->
+				
+				</div> <!--close left-col-->
+			
+			</div> <!--close col-wrap-->
+	
+		</div> <!--close container-wrap-->
+		
+		<div id="container-footer">
+			<div>&nbsp;</div>
+		</div>
+	
+	</div> <!--close container-->
+
+</div> <!--close page-->

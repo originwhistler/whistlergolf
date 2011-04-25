@@ -1,0 +1,83 @@
+
+
+
+
+
+
+<% if signed_in_as_admin? %>
+<p>
+  <b>Participant Name:</b>
+  <%=h @lesson_booking.participant_name %>
+</p>
+
+<p>
+  <b>Parent / Guardian Name:</b>
+  <%=h @lesson_booking.parent_name %>
+</p>
+
+<p>
+  <b>Student Age:</b>
+  <%=h @lesson_booking.student_age %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @lesson_booking.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @lesson_booking.city %>
+</p>
+
+<p>
+  <b>Province state:</b>
+  <%=h @lesson_booking.province_state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @lesson_booking.country %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%=h @lesson_booking.phone_number %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @lesson_booking.email %>
+</p>
+
+<p>
+  <b>Lesson:</b>
+  <%=h @lesson_booking.lesson %>
+</p>
+
+<p>
+  <b>Preferred day:</b>
+  <%=h @lesson_booking.preferred_day %>
+</p>
+
+<p>
+  <b>Preferred time:</b>
+  <%=h @lesson_booking.preferred_time %>
+</p>
+
+<p>
+  <b>Clinic number:</b>
+  <%=h @lesson_booking.clinic_number %>
+</p>
+
+<p>
+  <b>Golf school number:</b>
+  <%=h @lesson_booking.golf_school_number %>
+</p>
+
+
+<%= link_to 'Edit', edit_lesson_booking_path(@lesson_booking) %> |
+<%= link_to 'Back', lesson_bookings_path %>
+
+
+<% end %>

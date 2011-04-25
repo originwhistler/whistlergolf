@@ -1,0 +1,23 @@
+%h1
+  New content
+- form_for(@content, :html => { :multipart => true }) do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .clear
+  %p
+    = f.label :text
+    %br/
+    = f.text_area :text
+  .clear
+  %p
+    = f.label :attachment
+    %br/
+    = f.file_field :attachment
+  .clear
+  %p
+    = f.submit "Create"
+.clear
+= link_to 'Back', contents_path

@@ -1,0 +1,181 @@
+1:
+  number: 1
+  par: 4
+  mens_handicap: 9
+  womens_handicap: 7
+  forward_tees: 340
+  palmer_tees: 380
+  tournament_tees: 360
+  description: "This hole favours a left to right tee shot. The hooked or pulled shot will leave you with a tough shot around the huge hemlock that stands left of this undulating green."
+  
+
+2:
+  number: 2
+  par: 4
+  mens_handicap: 3
+  womens_handicap: 11
+  forward_tees: 320
+  palmer_tees: 471
+  tournament_tees: 410
+  description: "The tee shot landing area is guarded left and right by bunkers. Watch out for the large spruce on the right side 80 yards short of the green. Bunkers right and back protect this green."
+
+3:
+  number: 3
+  par: 5
+  mens_handicap: 1
+  womens_handicap: 1
+  forward_tees: 466
+  palmer_tees: 552
+  tournament_tees: 537
+  description: "From tee to green, right is jail. Left center off the tee is ideal. From this point the hole doglegs sharply right around the corner. Don't miss this green long."
+
+4:
+  number: 4
+  par: 4
+  mens_handicap: 17
+  womens_handicap: 15
+  forward_tees: 256
+  palmer_tees: 301
+  tournament_tees: 301
+  description: "This short par 4 will tempt many to drive the green, however the rise in front of the tee hides a narrow fairway and a creek down the entire right side."
+
+5:
+  number: 5
+  par: 3
+  mens_handicap: 7
+  womens_handicap: 13
+  forward_tees: 166
+  palmer_tees: 233
+  tournament_tees: 211
+  description: "The wind will play a big role in club selection as it is usually in your face. 5 usually requires a wood to reach the green which is no bargain itself. Stay below the hole!"
+
+6:
+  number: 6
+  par: 4
+  mens_handicap: 13
+  womens_handicap: 5
+  forward_tees: 332
+  palmer_tees: 370
+  tournament_tees: 370
+  description: "The ideal position off the tee is right centre but be careful of the two fir trees. Beware of water behind the green as this hole usually plays downwind."
+
+7:
+  number: 7
+  par: 4
+  mens_handicap: 11
+  womens_handicap: 9
+  forward_tees: 321
+  palmer_tees: 384
+  tournament_tees: 363
+  description: "Put the driver away. Any tee shot to the right will catch the creek. Hit something about 200 yards at the left centre of the fairway. This will leave you about 140 yards in. On your second shot take enough club to clear right front trap. Another tough green. This is a classic short par 4."
+
+8:
+  number: 8
+  par: 3
+  mens_handicap: 15
+  womens_handicap: 17
+  forward_tees: 119
+  palmer_tees: 188
+  tournament_tees: 161
+  description: "Trouble short and right. No kidding! Watch tier in centre of green. Do not be above the hole. I repeat, do not be above the hole."
+
+9:
+  number: 9
+  par: 5
+  mens_handicap: 5
+  womens_handicap: 3
+  forward_tees: 417
+  palmer_tees: 527
+  tournament_tees: 478
+  description: "A straight away par 5. Crabapple creek guards the entire right side. If the wind is down and you rip a drive, eagle is a possibility."
+
+10:
+  number: 10
+  par: 4
+  mens_handicap: 14
+  womens_handicap: 14
+  forward_tees: 286
+  palmer_tees: 334
+  tournament_tees: 326
+  description: "Another classic short par 4. This dogleg right is guarded by a lake left and Crabapple creek which lines the right side and cuts in front of the green. Maybe the toughest second shot on the course. Take two more clubs when the wind is up."
+
+11:
+  number: 11
+  par: 5
+  mens_handicap: 8
+  womens_handicap: 2
+  forward_tees: 415
+  palmer_tees: 515
+  tournament_tees: 486
+  description: "Unless you kill a drive, going for the green in two isn't worth it. Aim left centre off the tee and hit an iron between the two creeks. This will leave you anywhere from 110-160 yards in. Four bunkers guard another tough green."
+
+12:
+  number: 12
+  par: 4
+  mens_handicap: 4
+  womens_handicap: 6
+  forward_tees: 328
+  palmer_tees: 431
+  tournament_tees: 409
+  description: "A left to right tee shot is required here. Check wind. When it's behind you the second shot plays much shorter than yardage."
+
+13:
+  number: 13
+  par: 4
+  mens_handicap: 6
+  womens_handicap: 4
+  forward_tees: 348
+  palmer_tees: 404
+  tournament_tees: 391
+  description: "Anything left of the tee is in bear country. Stay to the right side of the fairway off the tee for a better angle to the green. A beautiful view of Blackcomb Mountain awaits your second shot. Par is a great score."
+
+14:
+  number: 14
+  par: 3
+  mens_handicap: 18
+  womens_handicap: 18
+  forward_tees: 135
+  palmer_tees: 181
+  tournament_tees: 160
+  description: "This tee shot usually requires an extra club. Watch out for the tier that runs diagonally through the green."
+
+15:
+  number: 15
+  par: 4
+  mens_handicap: 12
+  womens_handicap: 12
+  forward_tees: 293
+  palmer_tees: 385
+  tournament_tees: 361
+  description: "Aim left centre here to avoid take left and creek and O.B. right. Again, wind in your face and a tier that runs right across the middle of the green. Check flag position."
+
+16:
+  number: 16
+  par: 4
+  mens_handicap: 2
+  womens_handicap: 8
+  forward_tees: 332
+  palmer_tees: 460
+  tournament_tees: 450
+  description: "What a view! A good tee shot gives you a chance to hit the green in two. Be careful, this green is very well guarded by water and sand."
+
+17:
+  number: 17
+  par: 3
+  mens_handicap: 16
+  womens_handicap: 16
+  forward_tees: 138
+  palmer_tees: 181
+  tournament_tees: 169
+  description: "This narrow green is guarded left and right by bunkers. Check flag position as this green is very long.	"
+
+18:
+  number: 18
+  par: 4
+  mens_handicap: 10
+  womens_handicap: 10
+  forward_tees: 336
+  palmer_tees: 425
+  tournament_tees: 393
+  description: "A beautiful finishing hole with Mt Currie as your backdrop. A good tee shot is needed to avoid lake and fairway trap. Biggest green on course yields numerous three putts."
+

@@ -1,0 +1,78 @@
+= f.error_messages
+%fieldset
+  %legend 
+    Contact Info
+  %p.field-first
+    = f.label :first_name
+    = f.text_field :first_name
+  
+  %p.field-last
+    = f.label :last_name
+    = f.text_field :last_name
+
+
+    / %p.field-email-type
+    /   = f.label :email_type
+    /   = f.text_field :email_type
+
+  %p.field-email
+    = f.label :email
+    = f.text_field :email
+      
+  .clear
+
+  %p.field-phone-type.small
+    = f.label :phone_type
+    = f.select :phone_type, ['Cell','Office','Home']
+
+  %p.field-area-code
+    = f.label :area_code
+    = f.text_field :area_code
+
+  %p.field-phone
+    = f.label :phone_number
+    = f.text_field :phone_number
+
+  .clear
+
+  %p.field-address
+    = f.label :street_2, "Street"
+    = f.text_field :street_2
+
+  %p.field-address
+    = f.label :street_2, " "
+    = f.text_field :street_2
+  
+  %p.field-city
+    = f.label :city
+    = f.text_field :city
+
+  %p.field-province
+    = f.label :province
+    = f.text_field :province
+
+  %p.field-country
+    = f.label :country
+    = country_select("wedding_event", "country", ["Canada", "United States"])
+
+%fieldset
+  %legend
+    Event Information
+  %p.field-date
+    = f.label :requested_date
+    = f.date_select :requested_date
+  %p.field-date
+    = f.label :alternate_date
+    = f.date_select :alternate_date
+  %p.field-time
+    = f.radio_button :contact_time, 'AM'
+    = f.label :contact_time, 'AM'
+    
+    = f.radio_button :contact_time, 'PM'
+    = f.label :contact_time, 'PM'
+  
+  .clear
+    
+  %p.field-textarea
+    = f.label :comments
+    = f.text_area :comments

@@ -1,0 +1,185 @@
+= f.error_messages
+
+
+
+%fieldset.required_items
+  %legend Your Information
+  %p
+    = f.label :first_name, "*First Name:"
+    = f.text_field :first_name
+  %p
+    = f.label :last_name, "*Last Name:"
+    = f.text_field :last_name
+  %p
+    = f.label :street_address, "Address"
+    = f.text_field :street_address  
+  %p
+    = f.label :postal_code, "Postal Code"
+    = f.text_field :postal_code
+
+  %p
+    = f.label :telephone, "*Phone Number"
+    = f.text_field :telephone
+  %p
+    = f.label :email, "*Email Address"
+    = f.text_field :email
+
+  %p
+    = f.label :handicap, " *Do you have a registered handicap?"
+    = f.select :handicap, ['+4-4', '5-9', '10-16','17-24', '25-36'], :include_blank => 'Please Select'
+%div
+  %p.wide
+    %label 
+      *Does your company or charitable organization hold a golf outing or banquet?
+      
+    = f.radio_button :company_event, 'yes', :style => 'float: left'
+    %span{:style => 'float: left'} Yes
+    = f.radio_button :company_event, 'no', :style => 'float: left'
+    %span{:style => 'float: left'}  No
+
+  %p
+    %label Company or Charity name?
+    = f.text_field :company_name
+
+  %p
+    = f.label :income, "What is your approximate annual income?"
+    = f.select :income, [["under $50,000"], ["$50,000 to $75,000"], ["$75,000 to $100,000"], ["$100,00- $150,000"], ["$150,000- $200,000"], ["$200,000 plus"]]
+
+  %p.wide
+    = f.label :timeperyear, "*How often do you play the Whistler Golf Club?"
+    = f.select :timeperyear, [['once a year'], ['2-5 times'], ['5-10 times'], ['10plus']], :include_blank => 'Please Select'
+  
+  %p.date
+    = f.label :birthdate, "What's your birthdate?"
+    = f.date_select :birthdate, {:start_year => 1900, :end_year => Time.now.year}
+.clear
+%p.wide= f.label :other_courses, "*What other courses do you play?"
+.clear
+
+%div.checkboxes_collection
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Nicklaus North'
+    Nicklaus North
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Fairmont Chateau Whistler'
+    Fairmont Chateau Whistler
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Big Sky Golf and Country Club'
+    Big Sky Golf and Country Club
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Squamish Valley'
+    Squamish Valley
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'The Meadows at Pemberton'
+    The Meadows at Pemberton
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Furry Creek'
+    Furry Creek
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Vancouver Public courses'
+    Vancouver Public courses
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Vancouver Private course'
+    Vancouver Private course
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Okanagan courses'
+    Okanagan courses
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Vancouver Island courses'
+    Vancouver Island courses
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Washington State courses'
+    Washington State courses
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Other BC courses'
+    Other BC courses
+  %p
+    = check_box_tag 'sign_up[other_courses][]', 'Other courses'
+    Other courses
+
+.clear
+%br 
+%p.wide
+  %label *Where do you live?:
+  
+
+  
+  %p
+    %label City:
+    = f.text_field :city, :style => "float: left"
+  %p
+    %label Prov/State:
+    = select_tag 'sign_up[province]',  province_state_options
+
+
+
+  %p.wide
+    %label *How many lessons do you take a year?:
+    = f.select :number_of_lessons, [["0"], ['1'], ['2-5'], ['5-10'], ['10 plus']], :include_blank => 'Please Select'
+
+  %p.wide
+    %label * How many times do you play per month in a season?  
+    = f.select :times_per_month, [['once'], ['2-5 times'], ['5-10 times'], ['10plus']], :include_blank => 'Please Select'
+
+  %p
+    %label *How did you hear about this website?
+    = f.select :how_did_you_hear, [['Pique newspaper'], ['Vancouver Golf Show'], ['Province Newspaper'], ['Radio'], ['From a friend'], ['Google'], ['Golf Magazine'], ['Internet ad'], ['Other']], :include_blank => 'Please Select'
+
+  %p
+    %label *How would you rate our web site?<br/>1 being poor , 10 being great?:
+    = f.select :website_rating, [['1'], ['2'], ['3'], ['4'], ['5'], ['6'], ['7'], ['8'], ['9'], ['10']], :include_blank => 'Please Select'
+
+
+  %p 
+    %label *What is the number one factor <br>that influences where you play?
+    = f.select :influencing_factor, influences, :include_blank => 'Please Select'
+
+  %p
+    %label *What is the number two factor <br>that influences where you play? 
+    = f.select :influencing_factor_2, influences, :include_blank => 'Please Select'
+
+  %p
+    %label *What is the number three factor <br>that influences where you play? 
+    = f.select :influencing_factor_3, influences, :include_blank => 'Please Select'
+  .clear    
+  / *PLEASE INDICATE WHAT PROMOTIONS AND SPECIALS INTEREST YOU?  
+  / <check boxes - can select multiples> 
+  / <cm - these are the main way to segment those who sign up and we use it on the sign up to win form too>
+
+%div.checkboxes_collection
+  = f.label :promotions, "Please check the box of the areas you are interested in receiving information on."
+
+  %p
+    = check_box_tag "sign_up[promotions][]", 'green_fee_specials'
+    Green fee specials
+  %p
+    = check_box_tag "sign_up[promotions][]", 'group_outing_specials'
+    Group outing specials and packages
+  %p
+    = check_box_tag "sign_up[promotions][]", 'lesson_specials'
+    Lesson specials
+  %p
+    = check_box_tag "sign_up[promotions][]", 'junior_golf_school'
+    Junior Golf School promotions
+  %p
+    = check_box_tag "sign_up[promotions][]", 'demo_day_custom_fitting'
+    Demo Day and Custom fitting promotions:
+  %p
+    = check_box_tag "sign_up[promotions][]", 'ladies_night'
+    Ladies Night programs
+  %p
+    = check_box_tag "sign_up[promotions][]", 'mens_night'
+    Men’s Night programs
+  %p
+    = check_box_tag "sign_up[promotions][]", 'palmers_specials'
+    Palmer’s Gallery Bar and Grill specials and promotions:
+  %p
+    = check_box_tag "sign_up[promotions][]", 'golf_shop_specials'
+    Golf Shop specials and promotions
+  %p
+    = check_box_tag "sign_up[promotions][]", 'players_club'
+    Player’s Club
+
+  %p
+    = f.hidden_field :signuptype, :value => 'sign up'
+  

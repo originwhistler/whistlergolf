@@ -1,0 +1,81 @@
+= f.error_messages
+
+
+
+%p
+  = f.label :first_name
+  = f.text_field :first_name
+%p
+  = f.label :last_name
+  = f.text_field :last_name
+%p
+  = f.label :telephone
+  = f.text_field :telephone
+%p
+  = f.label :email
+  = f.text_field :email
+
+%p.wide.checkbox
+  = f.check_box :large_group, :class => 'checkbox'
+  = f.label :large_group, "Do you, your company or charitable event host a golf outing for 12 or more players?"
+
+
+%p.checkbox
+  = f.check_box :group_organizer, :class => 'checkbox'
+  = f.label :group_organizer, "Are you the Group Organizer?"
+
+.clear
+%p.wide
+  = f.label :comments, "Is there anything about our golf course and our service experience that could make your golf experience better?"
+  = f.text_area :comments
+.clear
+%p By submitting this form you are agreeing to receive future information from the Whistler Golf Club.
+  
+.clear
+
+%p.wide * Please indicate what promotions and specials interest you?
+.clear
+
+%div.checkboxes_collection
+  = f.label :promotions, "Are you interested in receiving promotional information?"
+
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'green_fee_specials'
+    Green fee specials
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'group_outing_specials'
+    Group outing specials and packages
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'lesson_specials'
+    Lesson specials
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'junior_golf_school'
+    Junior Golf School promotions
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'demo_day_custom_fitting'
+    Demo Day and Custom fitting promotions:
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'ladies_night'
+    Ladies Night programs
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'mens_night'
+    Men’s Night programs
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'palmers_specials'
+    Palmer’s Gallery Bar and Grill specials and promotions:
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'golf_shop_specials'
+    Golf Shop specials and promotions
+  %p
+    = check_box_tag "contest_entry[promotions][]", 'players_club'
+    Player’s Club
+
+
+
+.clear
+= check_box_tag 'contest_entry[agree_to_terms]', '1'
+%p I have read, understood and agree to the <a href="/terms-conditions" target="_blank">rules and regulations</a> and Tourism Whistler's <a href="/privacy" target="_blank">privacy policy</a>
+
+.clear
+
+= f.hidden_field :signuptype, :value => 'enter to win'

@@ -1,0 +1,10 @@
+%h1 Group Outing Request
+
+- form_for(@group_outing) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  .clear
+  %p= f.submit "Submit Group Outing Request"
+  .clear
+  %p By submitting this survey you are agreeing to receive specials and promotions from the Whistler Golf Club.
+
+/ = link_to 'Back', group_outings_path

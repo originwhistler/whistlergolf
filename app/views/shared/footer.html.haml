@@ -1,0 +1,52 @@
+#login_status
+  %script
+    new Ajax.Updater('login_status', '/users/login_status');
+
+%ul#footer_sm
+  %li
+    %a{:href => "http://www.facebook.com/pages/Whistler-Canada/WHISTLER-GOLF-CLUB/177030538193", :target => "_blank"}
+      %img{:src => "/images/layout/logo-facebook.gif", :alt => "Facebook"}
+  %li
+    %a{:href => "http://twitter.com/whistlergolf", :target => "_blank"}
+      %img{:src => "/images/layout/logo-twitter.gif", :alt => "Twitter"}
+  %li
+    %a{:href => "http://www.youtube.com/user/theWhistlerGolfClub", :target => "_blank"}
+      %img{:src => "/images/layout/logo-youtube.gif", :alt => "Youtube"}
+  %li
+    %a{:href => "http://blog.whistlergolf.com/feed/", :target => "_blank"}
+      %img{:src => "/images/layout/logo-rss.gif", :alt => "RSS Feed"}
+    
+%ul#footer_nav.horiz_nav
+  %li
+    = link_to 'Home', '/'
+    |
+  %li
+    = link_to 'Mobile', 'http://m.whistlergolf.com/redirect/switch_to_mobile.php'
+    |
+  %li
+    = link_to 'Privacy Policy', '/privacy'
+    |
+  %li
+    = link_to 'Contact', '/contact'
+    |
+  %li
+    = link_to 'Pass Holders', passholders_path
+    |
+  %li
+    = link_to 'Employment', '/careers'
+    |
+  %li
+    = link_to 'Admin', admin_path
+    | 
+  %li
+    %b{:style => 'padding-left: 5px;'} 
+      Toll Free 1-800-376-1777
+
+      
+
+
+
+
+
+
+    

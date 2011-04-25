@@ -1,0 +1,5 @@
+<h2>Welcome to the Whistler Golf Club Players' Club</h2>
+<p>Your membership in the Whistler Golf Club "Players' Club" must be confirmed by clicking the link below, or copy the URL it and paste it into the address bar in your web browser.</p>
+<p><%= new_user_confirmation_url :user_id => @user.id, :token => @user.token, :encode => false %></p>
+<p>Thank you and we appreciate your interest.</p>
+

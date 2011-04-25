@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  telephone: MyString
+  email: MyString
+  group_organizer: false
+  large_group: false
+  comments: MyText
+  agree_to_terms: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  telephone: MyString
+  email: MyString
+  group_organizer: false
+  large_group: false
+  comments: MyText
+  agree_to_terms: 1

@@ -1,0 +1,7 @@
+%h1
+  Editing group_outing
+- form_for(@group_outing) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p
+    = f.submit "Update"
+

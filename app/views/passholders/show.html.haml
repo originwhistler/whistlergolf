@@ -1,0 +1,17 @@
+%h1 
+  Passholder: 
+  = @passholder.email
+
+/- booking_link = Content.find_by_title('Passholder Booking Link')
+/- if booking_link
+/  %h2= link_to "BOOK PASSHOLDER TEE TIME NOW", booking_link.text, :class => 'lightwindow booking_link', :params => 'lightwindow_width=805'
+  
+#passholder_specials
+  =markdown(@specials.text)
+
+#passholder_events
+  =markdown(@events.text)
+
+#passholder_info
+  =markdown(@info.text)
+  

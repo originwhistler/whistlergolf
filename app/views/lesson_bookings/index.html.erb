@@ -1,0 +1,46 @@
+<h1>Listing lesson_bookings</h1>
+
+<table>
+  <tr>
+    <th>Participant Name</th>
+	<th>Parent / Guardian Name</th>
+	<th>Student Age</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Province state</th>
+    <th>Country</th>
+    <th>Phone number</th>
+    <th>Email</th>
+    <th>Lesson</th>
+    <th>Preferred day</th>
+    <th>Preferred time</th>
+    <th>Clinic number</th>
+    <th>Golf school number</th>
+  </tr>
+
+<% for lesson_booking in @lesson_bookings %>
+  <tr>
+    <td><%=h lesson_booking.participant_name %></td>
+	<td><%=h lesson_booking.parent_name %></td>
+	<td><%=h lesson_booking.student_age %></td>
+    <td><%=h lesson_booking.address %></td>
+    <td><%=h lesson_booking.city %></td>
+    <td><%=h lesson_booking.province_state %></td>
+    <td><%=h lesson_booking.country %></td>
+    <td><%=h lesson_booking.phone_number %></td>
+    <td><%=h lesson_booking.email %></td>
+    <td><%=h lesson_booking.lesson %></td>
+    <td><%=h lesson_booking.preferred_day %></td>
+    <td><%=h lesson_booking.preferred_time %></td>
+    <td><%=h lesson_booking.clinic_number %></td>
+    <td><%=h lesson_booking.golf_school_number %></td>
+    <td><%= link_to 'Show', lesson_booking %></td>
+    <td><%= link_to 'Edit', edit_lesson_booking_path(lesson_booking) %></td>
+    <td><%= link_to 'Destroy', lesson_booking, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New lesson_booking', new_lesson_booking_path %>

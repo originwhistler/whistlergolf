@@ -1,0 +1,40 @@
+- if show_admin_content?
+  %p
+    %b
+      First name:
+    = h @contact.first_name
+  %p
+    %b
+      Last name:
+    = h @contact.last_name
+  %p
+    %b
+      Street address:
+    = h @contact.street_address
+  %p
+    %b
+      City:
+    = h @contact.city
+  %p
+    %b
+      Province:
+    = h @contact.province
+  %p
+    %b
+      Postal code:
+    = h @contact.postal_code
+  %p
+    %b
+      Telephone:
+    = h @contact.telephone
+  %p
+    %b
+      Email:
+    = h @contact.email
+  %p
+    %b
+      Comments:
+    = h @contact.comments
+  = link_to 'Edit', edit_contact_path(@contact)
+  |
+  = link_to 'Back', contacts_path

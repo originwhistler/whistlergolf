@@ -1,0 +1,35 @@
+%p
+  %b
+    First name:
+  = h @contest_entry.first_name
+%p
+  %b
+    Last name:
+  = h @contest_entry.last_name
+%p
+  %b
+    Telephone:
+  = h @contest_entry.telephone
+%p
+  %b
+    Email:
+  = h @contest_entry.email
+%p
+  %b
+    Group organizer:
+  = h @contest_entry.group_organizer
+%p
+  %b
+    Large group:
+  = h @contest_entry.large_group
+%p
+  %b
+    Comments:
+  = h @contest_entry.comments
+%p
+  %b
+    Agree to terms:
+  = h @contest_entry.agree_to_terms
+= link_to 'Edit', edit_contest_entry_path(@contest_entry)
+|
+= link_to 'Back', contest_entries_path

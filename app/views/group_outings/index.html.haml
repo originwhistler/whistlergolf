@@ -1,0 +1,37 @@
+%h1
+  Listing Group Outings
+%table
+  %tr
+    %th
+      First name
+    %th
+      Last name
+    %th
+      Email
+    %th
+      Phone
+    %th
+      Actions
+
+  - for group_outing in @group_outings
+    %tr
+      %td
+        = h group_outing.first_name
+      %td
+        = h group_outing.last_name
+      %td
+        = h group_outing.email
+      %td
+        = h group_outing.area_code
+      %td
+        = h group_outing.phone_number
+
+      %td
+        = link_to 'Show', group_outing
+      %td
+        = link_to 'Edit', edit_group_outing_path(group_outing)
+      %td
+        = link_to 'Destroy', group_outing, :confirm => 'Are you sure?', :method => :delete
+
+%br/
+= link_to 'New group_outing', new_group_outing_path

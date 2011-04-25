@@ -1,0 +1,107 @@
+<div id="login-container">
+	
+	<div id="login-content" style="width:600px;">
+	
+		<div class="module">
+			
+			<div class="module-head">
+				<h3 class="logo"></h3>
+			</div>
+			
+			<ul id="process">
+				<li class="first complete"><span><?php __('Step 1'); ?></span></li>
+				<li class="prevactive"><span><?php __('Step 2'); ?></span></li>
+				<li class="active"><span><?php __('Step 3'); ?>: <?php __('Activation'); ?></span></li>
+				<li class=""><span><?php __('Step 4'); ?></span></li>
+				<li class=""><span><?php __('Step 5'); ?></span></li>
+				<li class="last"><span><?php __('Step 6'); ?></span></li>
+			</ul>
+			
+			<h4><?php __('Installation: Activation'); ?></h4>
+			
+			<div class="clear"></div>
+			
+			<div class="wrap">
+				
+				<div class="content">
+				
+					<?php if (isset($error)): ?>
+					
+						<?php if (preg_match('/^TRANSFER/', $error)): $bits = explode('||', $error); ?>
+							
+							<p><?php printf(__('This key has already been used at the following domain: %s. Would you like to transfer this key from %s to this domain?', true), '<strong>' . $bits[1] . '</strong>', $bits[1]); ?></p>
+							
+							<p><em><?php printf(__('WARNING: This will disable the installation of Director at %s', true), $bits[1]); ?></em>.</p>
+							
+							<form action="<?php e($html->url('/install/activate')); ?>" method="post">
+
+							<input type="hidden" name="data[transfer]" value="1" />
+							<input type="hidden" name="data[Account][key]" value="<?php e($this->data['Account']['key']); ?>" />
+							
+							<fieldset class="install-button">
+								<button class="primary_lg" type="submit"><?php __('Activate'); ?></button>
+							</fieldset>
+							
+							</form>
+							
+						<?php else: ?>
+						
+						<div id="alert">
+							<div class="error">
+								<div class="tr"></div>
+								<div class="content">
+									<div class="fixed icon">
+										<?php e($error); ?>
+									</div>
+								</div>
+								<div class="bl"><div class="br"></div></div>
+							</div>
+						</div>
+												
+						<form action="<?php e($html->url('/install/activate')); ?>" method="post">
+							<fieldset>
+								<label><?php __('Activation key'); ?>:</label>
+								<?php e($form->text('Account/key', array('size' => 40, 'class' => 'wide'))); ?>
+							</fieldset>
+
+							<fieldset class="install-button">
+								<button class="primary_lg" type="submit"><?php __('Activate'); ?></button>
+							</fieldset>
+						</form>
+						
+						<?php endif; ?>
+						
+					<?php elseif (isset($local)): ?>
+					
+						<p><?php printf(__('Director does not require activation when installed on a local server. You may %s', true), $html->link(__('continue with installation', true), '/install/database')); ?>.</p>
+					
+					<?php else: ?>
+					
+						<p><?php printf(__('The next step is to activate this copy of Director. Copy/paste the activation key found on your %s into the field below', true), $html->link(__('Account Center profile page', true), 'http://slideshowpro.net/usersys/member.php', array('target' => '_blank'))); ?>.</p>
+
+						<form action="<?php e($html->url('/install/activate')); ?>" method="post">
+							<fieldset>
+								<label><?php __('Activation key:'); ?></label>
+								<?php e($form->text('Account/key', array('size' => 40, 'class' => 'wide'))); ?>
+							</fieldset>
+
+							<fieldset class="install-button">
+								<button class="primary_lg" type="submit"><?php __('Activate'); ?></button>
+							</fieldset>
+						</form>
+					
+					<?php endif; ?>
+					
+				</div> <!--close content-->
+
+			</div> <!--close module wrap-->
+
+			<div class="module-footer">
+				<div>&nbsp;</div>
+			</div>
+		
+		</div> <!--close module-->
+
+	</div> <!--close login-content-->
+
+</div> <!--close login-container-->

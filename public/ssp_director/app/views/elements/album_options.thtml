@@ -1,0 +1,275 @@
+<?php e($this->renderElement('album_head')); ?>
+
+<div id="container-wrap">
+	
+	<div class="col-wrap">
+		
+		<?php e($this->renderElement('album_subnav')); ?>
+	
+		<div class="left-col">
+			
+			<div class="left-col-inside">
+
+				<div class="module">
+
+					<div class="module-head">
+						<h3><?php __('Image metadata defaults'); ?>
+						<span class="help">[?]<span>
+						<?php __('All slideshow content in this album, both existing and uploaded later, will be assigned the titles, links, and captions you enter here. You can also edit these values individually in the Content tab.'); ?>
+						</span></span>
+						</h3>
+					</div>
+
+					<div class="wrap">
+
+						<div class="content">
+
+							<ul class="dash-strip module-first">
+								<li>   
+									
+									<button type="button" onclick="Messaging.dialogue('edit-titles'); return false;" title="<?php __('Edit title settings'); ?>" class="primary_sm right"><?php __('Edit'); ?></button>  
+									
+									<strong><?php __('Titles'); ?>:</strong> <span id="title-desc"><?php empty($album['Album']['title_template']) ? __('None') : __('Custom title'); ?></span>
+								</li>
+							</ul>
+
+						<ul class="dash-strip">
+							<li>    
+								<button type="button" onclick="Director.Interface.toggle('populate-links'); return false;" title="<?php __('Edit link settings'); ?>" class="primary_sm right"><?php __('Edit'); ?></button> 
+								
+								<strong><?php __('Links'); ?>:</strong> <span id="link-desc"><?php __($director->generateLinkTemplateDesc($album['Album']['link_template'])); ?></span>
+							</li>
+						</ul>  
+
+						<div id="populate-links" class="embed" style="display:none">
+							
+						      <p class="halfstep"><?php __('All content added to this album will be assigned a dynamic link using a template, or a static link to link them all to the same URL.'); ?> <?php e($html->link(__('Click here', true), "http://wiki.slideshowpro.net/SSPdir/Custom-LinkTemplate", array('target' => '_blank'), false, false)); ?> to learn how to make your own link template.</p>           
+							
+
+								<fieldset>
+									<select id="AlbumLink" onchange="if ($F('AlbumLink') == 'c') { $('custom-link').show(); } else { $('custom-link').hide(); }">
+										<option value=""><?php __('No links populated'); ?></option>
+										<optgroup label="Link templates">
+									<?php $selected = false; $has_select = false; if (!empty($link_templates)): foreach ($link_templates as $link): ?>
+										<?php include(PLUGS . DS . 'links' . DS . $link); ?>
+										<?php 
+												$value = $template . '__~~__' . $target; 
+												if ($value == urldecode($album['Album']['link_template'])) {
+													$selected = $has_select = true;
+			 									} else { $selected = false; }
+										?>
+										<option value="<?php e(htmlentities(urlencode($value)) . ife($selected, '" selected="selected', '')); ?>"><?php e($displayName); ?></option>
+									<?php endforeach; endif; ?>
+										</optgroup>
+										<?php if (!empty($custom_link_templates)): ?>
+										<optgroup label="User supplied link templates">	
+											<?php foreach ($custom_link_templates as $link): if ($link != 'sample' && $link != '.svn'): ?>
+												<?php include(CUSTOM_PLUGS . DS . 'links' . DS . $link . DS . 'template.php'); ?>
+												<?php 
+														$value = $template . '__~~__' . $target; 
+														if ($value == urldecode($album['Album']['link_template'])) {
+															$selected = $has_select = true;
+					 									} else { $selected = false; }
+												?>
+												<option value="<?php e(htmlentities(urlencode($value)) . ife($selected, '" selected="selected', '')); ?>"><?php e($displayName); ?></option>
+											<?php endif; endforeach; ?>
+										</optgroup>
+										<?php endif ?>
+										<option value="c"<?php e(ife(!$has_select && !empty($album['Album']['link_template']), ' selected="selected"', '')); ?>><?php __('Static link'); ?></option>
+			 						</select>
+								</fieldset>
+							<div id="custom-link"<?php e(ife(!$has_select && !empty($album['Album']['link_template']), '', ' style="display:none;"')); ?>>
+
+							<label><?php __('Static link'); ?></label>
+
+							<p class="halfstep"><?php __('All content added to this album will be assigned the link you enter below.'); ?></p>
+
+							<input type="hidden" id="existing_links" value="<?php empty($album['Album']['link_template']) ? e('0') : e('1'); ?>" />
+							
+							<fieldset>
+								<?php @list($val, $target) = explode('__~~__', urldecode($album['Album']['link_template'])); ?> 
+								<table cellspacing="0" cellpadding="0" width="100%">
+									<tr>
+										<td style="width:60px;">URL:</td>
+										<td><?php e($form->text('Album/link_template', array('style' => 'width:100%;', 'value' => ife(empty($album['Album']['link_template']), 'Your URL', $val)))); ?>
+											</td>
+									 </tr>
+                                    <tr><td colspan="2" style="height:15px;"></td></tr>
+									<tr>
+										<td>
+								Target:
+								</td>
+								<td><select id="static_target"><option value="0">Open in new window</option><option value="1"<?php if ($target == 1): ?> selected="selected"<?php endif; ?>>Open in same window</option></select></td>
+									</tr>
+									</table>
+							</fieldset> 
+							
+							</div>
+							<div id="link-clear" <?php e(count($link_check) == 0 ? 'style="display:none;"' : ''); ?>>
+								<span class="note"><strong><?php __('Warning'); ?></strong>: <?php __('Link settings have already been saved for this album.'); ?></span>
+						   	</div>
+
+							<fieldset>
+								<button id="links-button" type="button" onclick="prefill_links(<?php e($html->value('Album/id')); ?>)" title="<?php __('Save'); ?>" class="primary_lg right"><?php __('Save'); ?></button>  
+								                                      
+								<button id="links-clear-button" type="button" onclick="clear_links(<?php e($html->value('Album/id')); ?>)" title="<?php __('Clear links'); ?>" class="primary_lg right nudgeR"><?php __('Clear links'); ?></button> 
+							</fieldset>
+							
+						</div> <!--close populate-links-->
+
+						<ul class="dash-strip">
+							<li class="last">
+								   <button type="button" onclick="Messaging.dialogue('edit-captions'); return false;" title="<?php __('Edit caption settings'); ?>" class="primary_sm right"><?php __('Edit'); ?></button>    
+								
+								
+								<strong><?php __('Captions'); ?>:</strong> <span id="caption-desc"><?php empty($album['Album']['caption_template']) ? __('None') : __('Custom caption'); ?></span>
+							</li>
+						</ul>  
+
+						</div> <!--close content-->
+
+					</div> <!--close wrap-->
+
+					<div class="module-footer">
+						<div>&nbsp;</div>
+					</div>
+
+				</div> <!--close module-->
+				
+			</div> <!--close left-col-inside-->
+
+		</div> <!--close left-col-->
+
+	</div> <!--close col-wrap-->
+
+</div> <!--close container-wrap-->
+
+<?php e($director->preDialogue('edit-captions')); ?>
+			
+	<h1><?php __('Edit captions'); ?></h1>
+
+	<p><?php __('All content added to this album will be assigned the caption you enter below.'); ?></p>
+	<form id="caption_form" action="#" onsubmit="prefill_captions(<?php e($html->value('Album/id')) ?>); return false;">
+	<div class="dialogue-spacer">
+	<fieldset class="embed" style="text-align:center;">
+		<table cellspacing="0" cellpadding="0" class="macro_table">
+			<tr>
+				<td style="text-align:right">Director data:</td>
+				<td style="width:125px"><select id="dir_tags_select">
+				<?php foreach($dirs as $dir): ?>
+					<option value="[director:<?php e($dir); ?>]"><?php e(ucfirst($dir)); ?></option>
+				<?php endforeach; ?>
+				</select></td>
+				<td>
+					 <button type="button" onclick="fill_cap_tag('dir_tags_select')" title="<?php __('Insert') ?>" class="primary_sm_alt"><?php __('Insert') ?></button>   
+					</td>
+			</tr>
+			
+			<?php if (is_callable('iptcparse')): ?>
+			<tr>
+				<td style="text-align:right">IPTC data:</td>
+				<td><select id="iptc_tags_select">
+				<?php foreach($iptcs as $iptc): ?>
+					<option value="[iptc:<?php e($iptc); ?>]"><?php e(ucfirst($iptc)); ?></option>
+				<?php endforeach; ?>
+				</select></td>
+				<td>
+					 <button type="button" onclick="fill_cap_tag('iptc_tags_select')" title="<?php __('Insert') ?>" class="primary_sm_alt"><?php __('Insert') ?></button>    
+				</td>
+			</tr>
+			<?php endif; ?>
+			
+			<?php if (is_callable('exif_read_data')): ?>
+			<tr>
+				<td style="text-align:right">EXIF data:</td>
+				<td><select id="exif_tags_select">
+				<?php foreach($exifs as $exif): ?>
+					<option value="[exif:<?php e($exif); ?>]"><?php e(ucfirst($exif)); ?></option>
+				<?php endforeach; ?>
+				</select></td>
+				<td>
+					  <button type="button" onclick="fill_cap_tag('exif_tags_select')" title="<?php __('Insert') ?>" class="primary_sm_alt"><?php __('Insert') ?></button>   
+				</td>
+			</tr>
+			<?php endif; ?>
+		</table>
+	</fieldset>
+	
+	<fieldset class="nopad">
+		<?php e($form->textarea('Album/caption_template', array('cols' => 40, 'rows' => 5, 'class' => 'wide'))); ?>
+	</fieldset>
+	
+	</div>
+	
+	
+
+	<fieldset class="nopad">
+		<button id="captions-button" type="submit" title="<?php __('Save'); ?>" class="primary_lg_alt right"><?php __('Save'); ?></button>
+		<button id="captions-clear-button" type="button" onclick="clear_captions(<?php e($html->value('Album/id')) ?>)" title="<?php __('Clear captions'); ?>" class="primary_lg_alt right"><?php __('Clear captions'); ?></button> 
+   	 	<button type="button"  onclick="Messaging.kill('edit-captions');" title="<?php __('Cancel'); ?>" class="primary_lg_alt right"><?php __('Cancel'); ?></button> 
+   	</fieldset>
+	</form>
+
+<?php e($director->postDialogue()); ?>
+
+<?php e($director->preDialogue('edit-titles')); ?>
+			
+	<h1><?php __('Edit titles'); ?></h1>
+
+	<p><?php __('All content added to this album will be assigned the title you enter below.'); ?></p>
+	<form id="title_form" action="#" onsubmit="prefill_titles(<?php e($html->value('Album/id')) ?>); return false;">
+	<div class="dialogue-spacer">
+	<fieldset class="embed" style="text-align:center;">            
+
+		<table cellspacing="0" cellpadding="0" class="macro_table">
+			<tr>
+				<td style="text-align:right">Director data:</td>
+				<td style="width:125px"><select id="dir_tags_select_title">
+				<?php foreach($dirs as $dir): ?>
+					<option value="[director:<?php e($dir); ?>]"><?php e(ucfirst($dir)); ?></option>
+				<?php endforeach; ?>
+				</select></td>
+				<td><button class="primary_sm_alt" type="button" title="<?php __('Insert') ?>" onclick="fill_title_tag('dir_tags_select_title')"><?php __('Insert') ?></button></td>
+			</tr>
+			
+			<?php if (is_callable('iptcparse')): ?>
+			<tr>
+				<td style="text-align:right">IPTC data:</td>
+				<td><select id="iptc_tags_select_title">
+				<?php foreach($iptcs as $iptc): ?>
+					<option value="[iptc:<?php e($iptc); ?>]"><?php e(ucfirst($iptc)); ?></option>
+				<?php endforeach; ?>
+				</select></td>
+				<td><button class="primary_sm_alt" type="button" title="<?php __('Insert') ?>" onclick="fill_title_tag('iptc_tags_select_title')"><?php __('Insert') ?></button></td>
+			</tr>
+			<?php endif; ?>
+			
+			<?php if (is_callable('exif_read_data')): ?>
+			<tr>
+				<td style="text-align:right">EXIF data:</td>
+				<td><select id="exif_tags_select_title">
+				<?php foreach($exifs as $exif): ?>
+					<option value="[exif:<?php e($exif); ?>]"><?php e(ucfirst($exif)); ?></option>
+				<?php endforeach; ?>
+				</select></td>
+				<td><button class="primary_sm_alt" type="button" title="<?php __('Insert') ?>" onclick="fill_title_tag('exif_tags_select_title')"><?php __('Insert') ?></button></td>
+			</tr>
+			<?php endif; ?>
+		</table>
+	</fieldset> 
+	
+	<fieldset class="nopad">
+		<?php e($form->text('Album/title_template', array('class' =>'wide'))); ?>
+	</fieldset>
+	
+	</div>
+	
+	
+
+	<fieldset class="nopad">
+		<button id="titles-button" type="submit" class="primary_lg_alt right" title="<?php __('Save') ?>"><?php __('Save') ?></button>
+		<button id="titles-clear-button" type="button" class="primary_lg_alt right" title="<?php __('Clear titles') ?>" onclick="clear_titles(<?php e($html->value('Album/id')) ?>)"><?php __('Clear titles') ?></button>		
+		<button class="primary_lg_alt right"  type="button" title="<?php __('Cancel') ?>" onclick="Messaging.kill('edit-titles');"><?php __('Cancel') ?></button>
+	</fieldset>
+	</form>
+<?php e($director->postDialogue()); ?>

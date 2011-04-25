@@ -1,0 +1,7 @@
+%h1
+  Editing sign_up
+- form_for(@sign_up) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p
+    = f.submit "Update"
+

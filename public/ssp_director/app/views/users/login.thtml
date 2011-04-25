@@ -1,0 +1,79 @@
+<div id="login-container">
+	
+	<div id="login-content" style="width:278px;">
+	
+		<div class="module">
+			
+			<div class="module-head">
+				<h3 class="logo"></h3>
+			</div>
+			
+			<div class="wrap">
+				
+				<div class="content">
+				
+					<?php if (isset($error)): ?>
+						<?php if ($error == 'session'): ?>
+						<div id="alert">
+							<div class="error">
+								<div class="tr"></div>
+								<div class="content">
+									<div class="fluid icon">
+										<?php printf(__('Session creation failed. Check with your host to ensure the session_save_path is set correctly. %s for more informaiton.', true), $html->link(__('Click here', true), 'http://wiki.slideshowpro.net/SSPdir/CP-LoginFailsAfterInstall', array('target' => '_blank'))); ?>
+									</div>
+								</div>
+								<div class="bl"><div class="br"></div></div>
+							</div>
+						</div>	
+						<?php else: ?>
+						<div id="alert">
+							<div class="error">
+								<div class="tr"></div>
+								<div class="content">
+									<div class="fixed icon">
+										<?php e($error); ?>
+									</div>
+								</div>
+								<div class="bl"><div class="br"></div></div>
+							</div>
+						</div>
+						<?php endif; ?>
+					<?php endif; ?>
+			
+					<form method="post" action="<?php e($html->url('/users/login')); ?>">
+						
+						<fieldset>
+							<div style="float:right;"><?php e($html->link(__('Lost username?', true), '/users/password', array('title' => __('Click here to retrieve login', true)))); ?></div> 
+							<label><?php __('Username:'); ?></label>
+							<?php echo $form->text('User/usr', array('class' => 'wide')); ?>
+						</fieldset>
+						
+						<fieldset>
+							<label><?php __('Password:'); ?></label>
+							<?php echo $form->password('User/pwd', array('class' => 'wide')); ?>
+						</fieldset>
+												
+						<fieldset><button type="submit" title="<?php __('Sign in'); ?>" class="primary_lg right"><?php __('Sign in'); ?></button><input type="checkbox" name="data[remember]" class="radio" /> <?php __('Remember me'); ?></fieldset></form>
+
+					
+					<script type="text/javascript">
+						Field.activate('UserUsr');
+					</script>
+		
+				</div> <!--close content-->
+		
+			</div> <!--close module wrap-->
+		
+			<div class="module-footer">
+				<div>&nbsp;</div>
+			</div>
+					
+		</div> <!--close module-->
+		
+		<div id="simple-footer">
+			<span>SlideShowPro Director <?php e(DIR_VERSION); ?></span> 
+		</div>
+		
+	</div> <!--close login-content-->
+
+</div> <!--close login-container-->

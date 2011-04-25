@@ -1,0 +1,64 @@
+%ul.horiz_nav
+  /
+    <li id="nav-home"><haml:loud> link_to content_tag :span, &amp;quot;Home&amp;quot;, '/' </haml:loud></li>
+  %li#nav-course
+    = link_to(content_tag(:span, "The Course"), '/course')
+    %ul
+      %li#nav-course-index
+        = link_to(content_tag(:span, "The Course"), '/course')
+      %li#nav-architect
+        = link_to(content_tag(:span, "Architect"), '/course/architect')
+      %li#nav-hole-by-hole
+        = link_to(content_tag(:span, "Hole By Hole"), '/course/hole-by-hole')
+      %li#nav-course-gallery
+        = link_to(content_tag(:span, "Image Gallery"), '/course/gallery')
+      %li#nav-directions
+        = link_to(content_tag(:span, "Directions"), '/course/directions')
+      %li#nav-faq
+        = link_to(content_tag(:span, "FAQ"), '/course/faq')
+      
+  %li#nav-facilities
+    = link_to(content_tag(:span, "Facilities"), '/facilities')
+    %ul
+      %li#nav-facilities-index
+        = link_to(content_tag(:span, "Facilities"), '/facilities')
+      %li#nav-palmers-gallery
+        = link_to(content_tag(:span, "Palmers Gallery"), '/facilities/gallery')
+      %li#nav-shop
+        = link_to(content_tag(:span, "Golf Shop"), '/facilities/shop')
+      %li#nav-learning
+        = link_to(content_tag(:span, "The Range"), '/facilities/learning')
+      
+  %li#nav-rates
+    = link_to(content_tag(:span, "Rates"), '/rates')
+    %ul
+      %li#nav-rates-index
+        = link_to(content_tag(:span, "Rates"), '/rates')
+      %li#nav-bc-resident
+        = link_to(content_tag(:span, "BC Residents"), '/rates/bc-residents')
+      %li#nav-season-pass
+        = link_to(content_tag(:span, "Season Passes"), '/rates/season-pass')
+      %li#nav-clinics
+        = link_to(content_tag(:span, "Instructional Programs"), '/rates/instructional-programs')
+        
+  %li#nav-events
+    = link_to(content_tag(:span, "Event Planning"), '/events')
+    %ul
+      %li#nav-events-index
+        = link_to(content_tag(:span, "Event Planning"), '/events')
+      %li
+        = link_to(content_tag(:span, "Golf Outings"), '/events/golf-outings')
+      %li
+        = link_to(content_tag(:span, "Weddings &amp; Events"), '/events/weddings')
+  %li#nav-blog
+    = link_to(content_tag(:span, "Blog"), "http://blog.#{SITE_DOMAIN}")
+    / %ul
+    /   %li
+    /     = link_to(content_tag(:span, "Our Blog"), "http://blog.#{SITE_DOMAIN}")
+    /   %li
+    /     = link_to(content_tag(:span, "Archive"), '/blog/archive')
+  %li#nav-stay-play
+    = link_to(content_tag(:span, "Stay &amp; Play"), '/stay-play')
+    %ul
+      %li
+        = link_to(content_tag(:span, "Stay &amp; Play Packages"), '/stay-play')

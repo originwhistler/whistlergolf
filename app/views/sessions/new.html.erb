@@ -1,0 +1,38 @@
+<div class="column span-6 border">
+<h2>
+    Sign in 
+    <%= "to the Players Club" if players_club? %>
+    <%= "as a Passholder" if passholder? %>
+</h2>
+
+<% form_for :session, :url => session_path do |form| %>
+  <div class="text_field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>  
+  </div>
+  <div class="text_field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <div class="text_field">
+    <%= form.check_box :remember_me, :style => 'float: left; margin-top: 3px;' %>
+    <%= form.label :remember_me %>
+  </div>
+  <div class="submit_field">
+    <%= form.submit "Sign in", :disable_with => "Please wait..." %>
+  </div>
+  <p class="forgot_password">
+    <%= link_to "Forgot / Change Password", new_password_path %>
+  </p>
+<% end %>
+
+</div>  
+<% if players_club? %>
+<div class="column span-6" style="padding-left: 20px">
+  <h2>Not A Member?</h2>
+  <p class="signup">
+    <%= link_to "New User Sign Up", new_user_path if params[:controller] == 'users' %>
+    <%= link_to "Sign up to the Players Club now", new_player_path if players_club? %>
+  </p>
+</div>
+<% end %>

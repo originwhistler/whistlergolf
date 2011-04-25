@@ -1,0 +1,49 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_name: AString
+  last_name: AString
+  telephone: AString
+  email: AString
+  birthdate: AString
+  handicap: AString
+  company_event: AString
+  city: AString
+  province: AString
+  other_courses: AString
+  number_of_lessons: AString
+  influencing_factor: AString
+  influencing_factor_2: AString
+  influencing_factor_3: AString
+
+two:
+  first_name: AString
+  last_name: AString
+  telephone: AString
+  email: AString
+  birthdate: AString
+  handicap: AString
+  company_event: AString
+  city: AString
+  province: AString
+  other_courses: AString
+  number_of_lessons: AString
+  influencing_factor: AString
+  influencing_factor_2: AString
+  influencing_factor_3: AString
+  
+three:
+  first_name: AString
+  last_name: AString
+  telephone: AString
+  email: AString
+  birthdate: AString
+  handicap: AString
+  company_event: AString
+  city: AString
+  province: AString
+  other_courses: AString
+  number_of_lessons: AString
+  influencing_factor: AString
+  influencing_factor_2: AString
+  influencing_factor_3: AString

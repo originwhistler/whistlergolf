@@ -1,0 +1,5 @@
+- content_for :side do
+  %ul.large_arrow_list
+    %li=link_to "Download Score Card", '/pdfs/WGC_ScoreCard10.pdf'
+    - if params[:path] && !params[:path].include?('hole-by-hole')
+      %li=link_to "Hole Descriptions & Video Flyovers", '/course/hole-by-hole' 

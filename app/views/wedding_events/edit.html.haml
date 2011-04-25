@@ -1,0 +1,6 @@
+%h1
+  Editing wedding event
+- form_for(@wedding_event) do |f|
+  = render :partial => 'form', :locals => {:f => f}
+  %p
+    = f.submit "Update"

@@ -1,0 +1,11 @@
+<div id="footer">
+	<span>
+	<strong>SlideShowPro Director <?php e(DIR_VERSION); ?></strong>
+	<?php if (isset($version_link)): ?>
+		<a href="<?php e($version_link); ?>" title="<?php __('New Version Available'); ?>" style="color:#fafafa;" target="_blank"><?php __('New Version Available'); ?></a>
+	<?php endif; ?>
+	&copy; 2005-<?php e(date('Y')); ?> Bradleyboy Productions LLC <?php __('and'); ?> Dominey Design Inc. <?php __('All Rights Reserved'); ?>. 
+	<a href="http://slideshowpro.net/downloads/userguide/ssp_dir/Dir_User_Guide.pdf" title="<?php __('User Guide'); ?>"><?php __('User Guide'); ?></a> / 
+	<a href="http://forums.slideshowpro.net/" title="<?php __('Forums'); ?>"><?php __('Forums'); ?></a> / <a href="http://slideshowpro.net" title="SlideShowPro">SlideShowPro</a>
+	</span>
+</div>

@@ -1,0 +1,73 @@
+%h2
+  Site Administration
+%br
+%br
+%br
+.rule
+.admin_list
+  %h3 Dynamic Content
+  %br  
+  - @content.each do |content|
+    %p
+      = content.title
+      = link_to "Edit", edit_content_url(content)
+  
+.admin_list
+  %h3 Players Club Members  
+  %br
+  - @players.each do |player|
+    %p
+      = player.email
+      = link_to "Show", player
+      / = link_to "Edit", edit_player_url(player)
+      = link_to 'Delete', player, :confirm => 'Are you sure?', :method => :delete
+  %p 
+    = link_to "Create New Player", new_player_path
+  
+.admin_list
+  %h3 Passholders
+  %br
+  - @passholders.each do |passholder|
+    %p 
+      = passholder.email
+      = link_to "Show", passholder
+      / = link_to "Edit", edit_passholder_url(passholder)
+      = link_to 'Delete', passholder, :confirm => 'Are you sure?', :method => :delete
+  %p 
+    = link_to "Create New Passholder", new_passholder_path
+.rule
+
+.admin_list
+  %h3 Wedding Event Requests - <a href="/wedding_events.csv">Export All</a>
+  %br
+  - @wedding_events.each do |event|
+    %p 
+      = link_to "#{event.first_name} #{event.last_name}", event
+      = link_to "Export", formatted_wedding_event_url(event, :csv)
+
+.admin_list
+  %h3 Group Outing Requests - <a href="/group_outings.csv">Export All</a>
+  %br
+  - @group_outings.each do |outing|
+    %p 
+      = link_to "#{outing.first_name} #{outing.last_name}", outing
+      = link_to "Export", formatted_group_outing_url(outing, :csv)
+
+
+.admin_list
+  %h3 Contest Entries - <a href="/contest_entries.csv">Export All</a>
+  %br
+  - @contest_entries.each do |entry|
+    %p 
+      = link_to "#{entry.first_name} #{entry.last_name}", entry
+      = link_to "Export", formatted_contest_entry_url(entry, :csv)
+
+.admin_list
+  %h3 Signups - <a href="/sign_ups.csv">Export All</a>
+  %br
+  - @signups.each do |signup|
+    %p 
+      = link_to "#{signup.first_name} #{signup.last_name}", signup
+      = link_to "Export", formatted_sign_up_url(signup, :csv)
+      
+.rule

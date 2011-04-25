@@ -1,0 +1,51 @@
+%h1
+  Listing sign_ups
+%table
+  %tr
+    %th
+      First name
+    %th
+      Last name
+    %th
+      Streed address
+    %th
+      City
+    %th
+      Province
+    %th
+      Postal code
+    %th
+      Telephone
+    %th
+      Email
+    %th
+      Type
+  - for sign_up in @sign_ups
+    %tr
+      %td
+        = h sign_up.first_name
+      %td
+        = h sign_up.last_name
+      %td
+        = h sign_up.street_address
+      %td
+        = h sign_up.city
+      %td
+        = h sign_up.province
+      %td
+        = h sign_up.postal_code
+      %td
+        = h sign_up.telephone
+      %td
+        = h sign_up.email
+      %td
+        = h sign_up.type
+      %td
+        = link_to 'Show', sign_up
+      %td
+        = link_to 'Edit', edit_sign_up_path(sign_up)
+      %td
+        = link_to 'Destroy', sign_up, :confirm => 'Are you sure?', :method => :delete
+
+%br/
+= link_to 'New sign_up', new_sign_up_path

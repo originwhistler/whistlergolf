@@ -1,0 +1,7 @@
+%h1
+  Editing contest_entry
+- form_for(@contest_entry) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p
+    = f.submit "Update"
+

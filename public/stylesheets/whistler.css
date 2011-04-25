@@ -1,0 +1,390 @@
+/* Default Stylesheet for Nterchange Frontend 				*/
+/* ================================================== */
+
+/* HTML RULES 								 		  									*/
+/* ================================================== */
+body { font:10px Verdana, sans-serif; margin: 0;}
+h1, h2, h3, h4, h5{display: block; clear: both;font-family: Verdana, sans-serif; }
+
+h1, h2 { font-weight: bold; color: #CD6632; text-transform: uppercase;}
+h1 { font-size: 18px; }
+h2 { font-size: 12px; }
+h3 { font-size: 10px; font-weight: bold; text-transform: uppercase; color: #CD6632;}
+h4 { font-size: 10px; font-weight: bold; }
+h5 { font-size: 10px; display: inline; font-weight: bold; color: #000;}
+h6 { font-family: Verdana, sans-serif; font-size: 12px; color: #FFFFFF; text-transform: uppercase; float: left; display: block; margin: 1px 0 0 10px}
+p { line-height:1.5; margin-bottom:10px; }
+em, i{color: #B94923; font-style: italic;}
+a {color: #CD6632;text-decoration: none;}
+a:hover {color: #CD6632;text-decoration: underline;}
+p strong {color: #CD6632;}
+
+ul{margin-left: 0; padding-left: 0;}
+ul li{list-style: none; margin-left: 0; padding-left: 11px; background: url(/images/layout/arrow_orange.gif) 0 2px no-repeat;}
+
+dl{}
+dt{color: #CD6632;}
+dd{margin-left: 0;}
+dd ul li{background-image: url(/images/layout/arrow_orange.gif); padding-left: 12px; line-height: 15px;}
+
+dl.inline{float: left; clear: both; margin-bottom: 20px;}
+dl.inline dt{display: block; clear: both; float: left;}
+dl.inline dd{display: inline-block;clear: right; float: none; padding-left: 5px;}
+
+blockquote{font-size: 14px; font-style: normal; font-family: 'Trebuchet MS', Arial; padding: 20px 50px 20px 50px; margin: 0px 0; border-bottom: 1px solid #c5c3c3; position: relative; margin-bottom: 20px;}
+blockquote span{color: #CD6632; font-weight: bold; font-size: 18px; padding: 2px; line-height: 14px; height: 30px; width: 40px; display: block; position: absolute;}
+blockquote span.open_quote{top: 13px; left: 0px; background: url(/images/quote_open.gif) top left no-repeat;}
+blockquote span.close_quote{bottom: 30px; right: 0px;background: url(/images/quote_close.gif) top left no-repeat;}
+blockquote h2{font-size: 12px; font-style: normal; font-family: 'Trebuchet MS', Arial; padding: 0; margin: 20px 0;}
+blockquote cite{display: block; padding-top: 5px; color: #CD6632;font-size: 10px; font-style: normal;  font-family: Verdana, Arial; }
+blockquote cite b{font-style: italic;}
+
+table{width: 100%;border-collapse: collapse; border-bottom: 1px solid #efefef;}
+table td{border-bottom: 1px solid #efefef;border-right: 1px solid #efefef; text-align: center; padding-right: 0;padding-left: 0;}
+table th{background-color: #cd6632;color: #fff; padding-left: 5px;border-bottom: 1px solid #fff;}
+table td.first{background-color: #e2e1e1; padding-left: 5px; text-align: left; border-color: #fff; width: 100px;}
+table td.title{background: #989898; color: #ffffff; padding-left: 5px; font-weight: bold; width: 35%;}
+table td ul{text-align: left; margin-left: 5px;}
+
+table td.tournament{background: #e2e1e1 url(/images/tees-black.gif) 90% 50% no-repeat;}
+table td.palmer{background: #e2e1e1 url(/images/tees-blue.gif) 90% 50% no-repeat;}
+table td.white{background: #e2e1e1 url(/images/tees-white.gif) 90% 50% no-repeat;}
+table td.forward{background: #e2e1e1 url(/images/tees-green.gif) 90% 50% no-repeat;}
+
+table.holes td{padding-left: 0;}
+
+table.holes td.first{width: 120px; text-align: left; padding-left: 5px;}
+
+.specials{font-style: italic; margin: 2px;}
+
+.special{background-color: #f4e1d3; margin: 20px 0; padding: 12px 10px;}
+.special b{color: #CD6632;}
+.special p{margin: 0;}
+
+.rule{display: block; clear: both; border-top: 1px solid #ccc; margin: 20px 0;}
+.fpo{border: 2px dashed #991316; background: #EAD8B1; padding: 10px;}
+
+.download{}
+.pdf{line-height: 20px; background: url(/images/pdf.gif) top left no-repeat; padding-left: 23px;}
+.email{line-height: 20px;background: url(/images/email.gif) top left no-repeat; padding-left: 23px;}
+
+
+
+
+
+/* SITE LAYOUT RULES 								  								*/
+/* ================================================== */
+#site {width: 960px; margin: 10px auto;}
+
+#masthead {position: relative; height: 110px; background: url(/images/layout/masthead.gif) bottom left repeat-x; z-index: 100;}
+
+	#logo {float: left; width: 103px; height: 110px;}
+	#specials{height: 30px; width: 151px; position: absolute; top: 46px; right: 21px; text-decoration: none; background: url(/images/layout/specials.gif) top left no-repeat;}
+	#specials:hover{background-position: bottom left;}
+	#specials span{visibility: hidden;}
+
+#nav {float: left; padding-top: 75px; position: relative; z-index: 100;}	
+
+#branding{position: relative; z-index: 0; float: left; margin: 0 0 0 10px; width: 940px; height: 194px; background: url(/images/mastheads/default.jpg) top left no-repeat;}
+	
+	.course #branding{background-image: url(/images/mastheads/course.jpg);}
+	.course-architect #branding{background-image: url(/images/mastheads/course.jpg);}
+	.course-hole-by-hole #branding{background-image: url(/images/mastheads/course.jpg);}
+	.course-gallery #branding{background-image: url(/images/mastheads/course.jpg);}
+	.course-directions #branding{background-image: url(/images/mastheads/course.jpg);}
+	.course-faq #branding{background-image: url(/images/mastheads/course.jpg);}
+	
+	.facilities #branding{background-image: url(/images/mastheads/facilities.jpg);}
+	.facilities-gallery #branding{background-image: url(/images/mastheads/facilities-gallery.jpg);}
+	.facilities-learning #branding{background-image: url(/images/mastheads/learning-performance.jpg);}
+	.facilities-shop #branding{background-image: url(/images/mastheads/golf-shop.jpg);}
+	
+	.rates #branding{background-image: url(/images/mastheads/rates.jpg);}
+	.rates-season-pass #branding{background-image: url(/images/mastheads/rates.jpg);}
+	.rates-season-pass #branding{background-image: url(/images/mastheads/rates.jpg);}
+	.rates-instructional-programs #branding{background-image: url(/images/mastheads/learning-performance.jpg);}
+	.rates-packages #branding{background-image: url(/images/mastheads/rates.jpg);}
+	.rates-bc-residents #branding{background-image: url(/images/mastheads/rates.jpg);}
+		
+	.events #branding{background-image: url(/images/mastheads/groups-events.jpg);}
+	.events-golf-outings #branding{background-image: url(/images/mastheads/golf-outings.jpg);}
+	.events-weddings #branding{background-image: url(/images/mastheads/weddings-events.jpg);}
+	
+	.blog #branding{background-image: url(/images/mastheads/blog.jpg);}
+	
+	.careers #branding{background-image: url(/images/mastheads/employment.jpg);}
+	.employment-job-listings #branding{background-image: url(/images/mastheads/employment.jpg);}
+	
+  #branding #slideshow{position: absolute; top: 0; left: 0; z-index: 1;}
+/*#main{border: 1px solid;}*/
+#book{position: absolute; width: 300px; height: 198px; top: 0; right: 0; z-index: 100;}
+	.home #book{/*background: url(/images/layout/home_book.jpg) top left no-repeat;*/}
+	#book a{position: absolute; text-decoration: none;}
+
+	#book a span{visibility: hidden;}
+		#book_regular{top: 0; width: 198px; height: 55px; left: 102px; background: url(/images/nav/book.gif);}
+		#book_bc_residents{top: 56px; width: 98px; height: 38px; left: 102px; background: url(/images/nav/book.gif)  0 -56px; }
+		#book_players_club{top: 56px; width: 96px; height: 38px; left: 204px; background: url(/images/nav/book.gif) -101px -56px ;}	
+		#book a:hover{background-image: url(/images/nav/book_over.gif);}
+		a.booking_link{display: block; overflow:hidden; margin: 10px 0; width: 350px; height:50px; text-indent:-9999px; background: url(/images/book_save.png) top left no-repeat; }
+		a.booking_link:hover{background-position:bottom left;}
+		.booking_link .small_button_text{display: block; margin:0; padding:0; text-transform:capitalize; font-size: 10px; font-weight:normal;}
+#search {}
+
+#content {display: block; clear: both;}
+	#main {float: left; width: 620px; padding-top: 20px; margin: 0 0 0 10px;}
+	#side {float: left; width: 300px; margin: 4px 0 0 20px;}
+	#altside {}
+
+	.wide #main{margin: 0; width: 755px;}
+	.hole_detail{width: 900px !important;}
+	.hole_detail #content{width: 900px;  overflow:hidden;}
+	.hole_detail #main{width: 900px; padding-top: 0;}
+	.hole_detail #masthead, .hole_detail #branding, .hole_detail #book, .hole_detail #side, .hole_detail #nav, .hole_detail #footer, .hole_detail #promo_bar{display: none;}
+
+.hole_card{border: 0; width: 157px; height: 100px; padding-left: 10px; background: url(/images/holes/preview/card_bg.png) 0 13px no-repeat;}
+.hole_card h2{text-align: center; font-size: 11px;}
+.hole_card h2 a{text-decoration: none;}
+	
+ #lightwindow_contents{border: 1px solid #ccc !important;}
+/*#lightwindow_title_bar_close_link{position: absolute; top: 20px; right: 50px;}*/
+a#lightwindow_title_bar_close_link, a#lightwindow_title_bar_close_link:link, a#lightwindow_title_bar_close_link:visited {color: #333; display: block; width: 51px; height: 13px; position: absolute; top: 30px; right: 50px; background: url(/images/lightwindow/close.png) top left; z-index: 100;}
+#lightwindow_title_bar_close_link span{visibility: hidden;}
+
+#lightwindow_iframe body{background: red url(/images/holes/detail/hole_bar.png) top left repeat-x !important;}
+
+
+
+.hole{float: left;  margin-bottom: 20px;}
+.hole_bar{position: relative; height: 36px; background: url(/images/holes/detail/hole_bar.png) top left repeat-x; margin: -5px 0;}
+.hole_bar h2{font-size: 14px; line-height: 22px; padding: 5px 0 0 10px; margin-left: -5px; text-transform: capitalize; color: #333; float: left; width: 300px;}
+.hole_bar .pagination{font-size: 14px; font-weight: bold; color: #cd6632;}
+.hole_bar .pagination *{float: left; line-height: 30px;}
+.hole_bar a{text-decoration:none;}
+.hole_bar a span{visibility: hidden;}
+.hole_bar .prev{display: block; float: left; width: 23px; height: 30px; background: url(/images/holes/detail/prev.png) center left no-repeat;}
+.hole_bar .next{display: block; float: left; width: 23px; height: 30px; background: url(/images/holes/detail/next.png) center right no-repeat;}
+
+
+.hole .hole_map{width: 300px; float: left; margin-right: 0px;}
+.hole .hole_details{float: left; width: 525px;}
+.hole .hole_detail_block{position: relative; margin-top: 25px; height: 100px; background: url(/images/holes/detail/detail_bg.png) top left no-repeat; padding: 10px 0 0 10px;}
+.hole .hole_detail_block h1{float: left; text-transform: capitalize; font-size: 14px; width: 350px;}
+.hole h2{margin-left: -10px;}
+.hole .hole_detail_block p{font-size: 10px; width: 355px; float: left; clear: both;}
+.hole .hole_detail_block img{position: absolute; top: 10px; right: 15px;}
+
+.hole .hole_details table{width: 170px;margin-left: 5px;}
+
+.hole .stat{float: left; clear: both; }
+.hole b{display: block;float: left; width: 120px; text-align: right; padding-right: 5px;}
+.hole span{float: left; height: 20px;}
+.hole p{float: left; width: 355px; clear: right;}
+
+.hole .video{float:right; width: 320px; margin-right: 7px; position: relative; z-index: 100; cursor: pointer;}
+
+
+
+
+.awards blockquote{margin-bottom: 0;}
+.awards blockquote+h3{margin-bottom: 30px; margin-left: 20px;}
+.awards blockquote+p{margin-left: 20px; margin-bottom: 20px;}
+.awards em{color: #888; text-transform: normal;background: transparent; position: relative; top: -45px; margin-left: 53px;}
+
+.faq dt{margin-top: 20px;}
+
+
+#footer {float: left; width: 100%; padding-top: 15px; margin-top: 30px; background: url(/images/layout/footer.png) top left repeat-x; padding-bottom: 30px;}
+	#footer_sm {float : left; width: 108px; list-style-type: none; margin : 0 0 0 10px}
+	#footer_sm li{float : left; width: 24px; height: 24px; margin: 0 3px 0 0; padding: 0;}
+	#footer_nav {float: right; font-size: 10px; margin: 4px 0 0 0;}
+	#footer_nav li{background: none; padding: 0;}
+	#footer_nav a{color: #333; text-transform: uppercase; display: block; float: left; padding: 0 5px; text-decoration: none;}
+	#footer_nav a:hover{color: #CD6632;}
+	#credits {}
+
+
+/* BASIC CLASSES	 								  									*/
+/* ================================================== */
+.clear { display:block; clear:both; height:1px; line-height:1px; font-size:1px; }
+.img_left { float:left; }
+.img_right { float:right; }
+
+.flash{border: 2px solid; margin-bottom: 20px; padding: 10px; font-size: 12px;}
+..flash{border: 0;}
+
+
+
+
+/* NAVIGATION RULES 								  								*/
+/* ================================================== */
+#nav ul {}
+	#nav ul li { position:relative; background: none; padding: 0; z-index: 100;}
+	#nav li{float: left; padding: 0; margin: 0;}
+	#nav a{display: block; cursor: default; text-decoration: none; height: 25px; background-image: url(/images/nav/nav_states.gif); }
+	#nav a:hover{background-position: 0 -25px;}
+	#nav a span{visibility: hidden;}
+	
+	#nav-course a{width: 99px; background-position: 0 0;}
+	#nav-course a:hover, .course #nav-course a{background-position: 0 -25px;}
+	#nav-facilities a{width: 83px; background-position: -97px 0;}
+	#nav-facilities a:hover, .facilities #nav-facilities a{background-position: -97px -25px;}
+	#nav-rates a{width: 67px; background-position: -178px 0;}
+	#nav-rates a:hover, .rates #nav-rates a{background-position: -178px -25px;}
+	#nav-events a{width: 135px; background-position: -244px 0;}
+	#nav-events a:hover, .events #nav-events a{background-position: -244px -25px;}
+	#nav-blog a{width: 57px; background-position: -377px 0;}
+	#nav-blog a:hover, .blog #nav-blog a{background-position: -377px -25px;}
+	#nav-stay-play a{width: 108px; background-position: -433px 0;}
+	#nav-stay-play a:hover, .stay-play #nav-stay-play a{background-position: -433px -25px;}
+
+	#nav li ul, #nav li.inactive ul {display: none; z-index: 100; width: 140px; }
+	#nav li li{display: block; clear: both;margin-left: 0px; margin-bottom: 0; padding-left: 0px; background: url(/images/layout/arrow.gif) 10px 6px no-repeat;}
+	#nav li ul a{display: block; cursor: pointer; height: auto;  width: 120px; padding-left: 20px; background: none; line-height: 16px; color: #333; font-size: 9px;}
+	#nav li ul a:hover{text-decoration: underline; color: #CD6632;}
+	#nav li ul a span{visibility: visible;}
+	#nav li.active ul, #nav li:hover ul, #nav li.hover ul {position: absolute; top: 25px; left: 3px; display: block; background: url(/images/nav/dropdown.png) bottom right no-repeat; padding: 5px 12px 12px 0; margin-bottom: 0;}
+	#nav li:hover ul, #nav li.hover ul {position: absolute; top: 25px; left: 3px; display: block; background: url(/images/nav/dropdown.png) bottom right no-repeat; padding: 5px 12px 12px 0; margin-bottom: 0;}
+	#nav li.current a{font-weight: bold; }
+
+.horiz_nav {}
+.horiz_nav ul {}
+.horiz_nav ul li { float:left; }
+
+ul.horiz_nav{margin: 0;list-style: none; }
+ul.horiz_nav li{float: left; list-style: none; margin: 0;}
+
+/* SEARCH			 								  											*/
+/* ================================================== */
+#search form {}
+#search form input.text {}
+#search form input.button {}
+
+#searchresults dd { margin-bottom:5px; }
+#searchresults dl { margin-top:15px; }
+
+
+/* COMMON ELEMENTS		 								  									*/
+/* ================================================== */
+
+.title_block_topside{height:22px; background-color: #cd6632; padding: 7px 0 0 16px;}
+.content_block_topside{background:url("/images/layout/content_block_topside.gif") repeat-y; padding: 5px 15px 10px 15px;}
+.footer_block_topside{background:url("/images/layout/footer_block_topside.gif") no-repeat; height: 5px; margin: 0 0 4px 0}
+.twitter_mini{float: left; height: 16px; width: 16px; display: block;}
+
+.feed_title{display: block; margin: 10px 0 0 0; color : #444444; font-weight: normal;}
+.news_title{display: block; margin: 10px 0 0 0;}
+.feed_description{font-weight: normal; color: #222222;}
+.twitter-time{font-weight: normal; color: #222222; font-weight:bold;}
+.tweet_list{margin:0; padding:0;}
+.tweet_list li{background:url("/images/layout/white_space.png"); margin: 10px 0 0 0; padding:0;}*/
+.movie_programs{margin:25px 0 0 0};
+
+/* PAGE ELEMENTS		 								  									*/
+/* ================================================== */
+
+
+.promo_block{display: block; width: 300px;}
+
+/*
+#group{background: url(/images/layout/group_outings.png) 0 0 no-repeat;}
+
+#weddings{background: url(/images/layout/weddings.png) 0 0 no-repeat;}
+
+#side #group{background-position: 0 0; position: relative; right: -5px;}
+#side #weddings{background-position: 0px -5px; position: relative; right: -5px;}
+
+.promo_block{font-size: 10px; display: block; float: left; height: 100px; width: 205px;}
+	.promo_block h2{font-size: 20px; text-transform: uppercase; line-height: .8; font-weight: bold; color: #888; margin: 16px 20px 4px 24px; }
+	.promo_block h2{visibility: hidden;}
+	.promo_block ul{margin-left: 26px;width: 180px;}
+	.promo_block li{list-style: none;}
+	.promo_block a{color: #444; text-decoration: none; display: block;}
+	.promo_block a:hover{color: #CD6632;}
+
+#group h2{visibility: visible;}
+#group h2 a{}
+#group h2 a:hover{background: url(/images/layout/group_outings_hover.png) 0 0 no-repeat;}
+#group h2 a span{visibility: hidden;}
+#weddings h2{visibility: visible; margin-top: 11px;}
+#weddings h2 a{}
+#weddings h2 a:hover{background: url(/images/layout/weddings_hover.png) 0 0 no-repeat;}
+#weddings h2 a span{visibility: hidden;}
+*/
+
+/*#side .promo_block{width: 200px;}*/
+
+/* SIDEBAR		 								  									*/
+/* ================================================== */
+#side{font-size: 9px; font-weight: bold;}
+
+#side .promotion{position: relative; right: -10px;}
+
+	.large_arrow_list {margin-right: 0; margin-left: 10px;}
+	.large_arrow_list li{padding: 5px 0 5px 20px; background: url(/images/layout/arrow_black.gif) 0px 8px no-repeat;}
+	.large_arrow_list li a{text-transform:uppercase;}
+	.large_arrow_list li a:hover{color: #333;}
+	
+
+
+/* HOME PAGE		 								  									*/
+/* ================================================== */
+
+.home #branding{height: 296px;}
+.home #book{height: 300px; }
+.home #promo_bar{clear:both; background: none; padding-top: 0;}
+.home #group{}
+
+/*.home #main, .home #side{display: none;}*/
+.home #footer{background: url(/images/layout/footer.png) top left repeat-x; padding: 15px 0 0 0;margin-top: 0;}
+
+.home .promo_block{display: block; float: left; width: 300px; margin: 0 10px 10px 10px;}
+
+/*
+#news{width: 300px; background: url(/images/layout/course_news.png) top left no-repeat;}
+	#news h2{display: block; float: left; width: 54px; color: #cd6632; margin-top: 25px; margin-left: 20px;}
+	#news a{display: inline; text-decoration: underline;}
+	#news .news_title{text-decoration: none; font-weight: bold;display: block;text-decoration: none;}
+	#news #news_content{display: block; float: left; width: 190px; margin-top: 21px; padding-left: 5px;}
+*/
+
+#logos{margin-top: 20px;}
+#logos a{float: left; margin: 0 15px 10px 0;}
+
+
+.field-time{}
+.field-time label{float: left; width: 30px;}
+.field-time input{float: left; width: 30px;}
+
+
+#front_nine_title{width: 130px;}
+#back_nine_title{width: 150px;}
+
+
+
+/* PLAYERS CLUB / PASSHOLDERS													*/
+/* ================================================== */
+.signup{display: block; padding: 10px 0; margin: 0; font-weight: bold; }
+.forgot_password{border: 0; margin-left: 0; padding-left: 0;}
+	
+/* ADMIN		 								  									*/
+/* ================================================== */
+#wmd-preview-wrapper{position: relative; width: 400px; overflow:scroll;}
+#wmd-preview{}
+
+.errorExplanation{border: 1px dashed; padding: 5px 10px; width: 600px;}
+.errorExplanation ul{clear: both;}
+.errorExplanation ul li{position: relative; display: block; float: none; clear: both;}
+
+.fieldWithErrors{clear: both; }
+.fieldWithErrors input{border: 1px solid #CD6632;}
+
+.checkboxes_collection{}
+#site .checkboxes_collection input.checkbox{float: left; clear: right;}
+.checkboxes_collection span{display: block; width: 50%; float: left; clear: both;}
+p.checkbox input{float: left;}
+p.checkbox label{padding: 0 0 0 20px;}
+
+#site form input.checkbox{margin-top: 0px; margin-right: 3px;}
+
+#site form textarea{width: 440px; height: 120px;}

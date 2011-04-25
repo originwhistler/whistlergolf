@@ -1,0 +1,90 @@
+<div class="module">
+
+	<div class="module-head">
+		<h3><?php __('Publish status'); ?> <span class="help">[?]<span><?php __('Controls whether this album is available for publication. "Inactive" will keep this album from appearing in a gallery. "Active" will make this album available for inclusion in a gallery.'); ?></span></span>
+		</h3>
+	</div>
+
+	<div class="wrap">
+		
+		<div class="content">
+			<form action="#" method="post" onsubmit="toggle_album_active(this, <?php e($album['Album']['id']); ?>); return false;">
+				<fieldset>
+					<?php e($form->select('Album/active', array(0 => __('Inactive', true), 1 => __('Active', true)), null, null, null, false)) ?>
+					&nbsp;					
+					<button id="state-button" type="submit" title="<?php __('Save'); ?>" class="primary_lg"><?php __('Save'); ?></button>
+				</fieldset>
+			</form>
+		</div>
+		
+	</div>
+	
+	<div class="module-footer">
+		<div>&nbsp;</div>
+	</div>	
+	
+</div>
+
+<div class="module">
+
+	<div class="module-head"><h3><?php __('History'); ?></h3></div>
+
+	<div class="wrap">
+
+		<div class="content">
+		
+			<p class="halfstep">
+				<?php e($director->avatar($album['Album']['created_by'], 24, 24, $users[$album['Album']['created_by']]['anchor'], 'float:left;margin:3px 4px 4px 0;')); ?>
+				<?php printf(__('This album was created by %s on %s.', true), '<strong>' . $users[$album['Album']['created_by']]['display_name_fill'] . '</strong>', $director->_date(__('%B %e, %Y', true), $album['Album']['created_on'])); ?>
+				<br /><br />
+				<?php e($director->avatar($album['Album']['updated_by'], 24, 24, $users[$album['Album']['created_by']]['anchor'], 'float:left;margin:3px 4px 4px 0;')); ?>
+				<?php printf(__('The last user to modify this album was %s on %s.', true), '<strong>' . $users[$album['Album']['updated_by']]['display_name_fill'] . '</strong>', $director->_date(__('%B %e, %Y', true), $album['Album']['modified_on'])); ?>
+			</p>
+			
+		</div>
+		
+	</div> <!--close wrap-->
+
+	<div class="module-footer">
+		<div>&nbsp;</div>
+	</div>
+
+</div> <!--close module-->
+
+
+<div class="module">
+
+	<div class="module-head">
+		<h3>
+		<?php __('Galleries added to'); ?>
+		<span class="help">[?]<span><?php __('The following galleries contain this album. To remove this album from a gallery, click on a gallery title and on the next page click "Manage albums."'); ?></span></span>
+		</h3>
+	</div>
+
+	<div class="wrap">
+
+		<div class="content">
+
+			<?php if (empty($album['Tag'])): ?>
+			
+				<p class="halfstep"><?php __('This album is inactive and not a part of any galleries.'); ?></p>
+			
+			<?php else: ?>
+			
+			<ul class="dash-strip module-first">
+				<?php foreach($album['Tag'] as $tag): ?>
+					<li><button type="submit" title="<?php __('Edit'); ?>" onclick="location.href='<?php e($html->url("/galleries/edit/{$tag['Gallery']['id']}")); ?>'"  class="primary_sm right"><?php __('Edit'); ?></button><?php e($html->link(__($tag['Gallery']['name'], true), "/galleries/edit/{$tag['Gallery']['id']}", array('class' => 'icon_label_gallery'))); ?></li>
+				<?php endforeach; ?>
+			</ul>
+			
+			<?php endif; ?>
+
+		</div> <!--close content-->
+		
+	</div> <!--close wrap-->
+
+	<div class="module-footer">
+		<div>&nbsp;</div>
+	</div>
+
+</div> <!--close module-->

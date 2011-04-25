@@ -1,0 +1,23 @@
+%h1
+  Listing contents
+%table{:style => 'width: 700px'}
+  %tr
+    %th
+      Title
+    %th
+      Text
+  - for content in @contents
+    %tr
+      %td
+        = h content.title
+      %td{:width => '500px'}
+        = truncate( content.text, 200 )
+      %td
+        = link_to 'Show', content
+      %td
+        = link_to 'Edit', edit_content_path(content)
+      %td
+        = link_to 'Destroy', content, :confirm => 'Are you sure?', :method => :delete
+
+%br/
+= link_to 'New content', new_content_path

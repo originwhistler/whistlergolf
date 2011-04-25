@@ -1,0 +1,10 @@
+%h1
+  Job Listings
+  
+= dynamic_content('Employment Content')
+
+
+- content_for :side do
+  
+  %ul.large_arrow_list
+    %li=link_to "Back To Employment", '/careers', :class => 'arrow_link'

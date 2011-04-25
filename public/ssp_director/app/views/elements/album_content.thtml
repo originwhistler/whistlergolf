@@ -1,0 +1,81 @@
+<?php e($this->renderElement('album_head')); ?>
+
+<div id="rebuild">
+	<?php e($this->renderElement('album_image_list')); ?>
+</div>
+<?php if (count($images) != 0): ?>
+<script type="text/javascript">
+	var edit_images = true;
+</script>
+<?php endif; ?>
+<div id="multi-footer" style="display:none;">
+	<ul>
+		<li><strong><span id="multi-count"></span></strong>&nbsp;<?php __('image(s) selected'); ?>  / <strong><?php __('Action'); ?>:</strong></li>
+		<li>
+			<a title="<?php __('Deactivate'); ?>" class="icon alt inactive_alt nudgeR" href="#" onclick="mass_deactivate(); return false;"></a>   
+			<a title="<?php __('Activate'); ?>" class="icon alt active_alt left nudgeR" href="#" onclick="mass_activate(); return false;"></a>   
+			<a title="<?php __('Rotate images counter-clockwise'); ?>" class="icon alt rotleft_alt nudgeR" href="#" onclick="mass_rotate_image(90); return false;"></a>
+			<a title="<?php __('Rotate images clockwise'); ?>" class="icon alt rotright_alt nudgeR" href="#" onclick="mass_rotate_image(-90); return false;"></a>				
+				<?php if (!empty($other_albums)): ?>
+				<a title="<?php __('Copy'); ?>" class="icon alt move_alt nudgeR" href="#" onclick="mass_copy(); return false;"></a>
+				<?php endif; ?>
+				<a title="<?php __('Tag content'); ?>" class="icon alt tag_alt nudgeR" href="#" onclick="mass_tag(); return false;"></a>	
+				<?php if ($user['perms'] > 1): ?>
+				<a title="<?php __('Delete'); ?>" class="icon alt delete_alt nudgeR" href="#" onclick="mass_delete(<?php e($album['Album']['id']) ?>); return false;"></a>
+				<?php endif; ?>
+			 <button type="button" title="<?php __('Clear selection'); ?>" onclick="clear_selection(); return false;" class="primary_sm_alt"><?php __('Clear selection'); ?></button>  
+			</li>
+	</ul>
+</div>
+
+<?php e($director->preDialogue('image-tag-mass')); ?>
+			
+	<h1><?php __('Tag content'); ?></h1>
+
+	<p><?php printf(__('Enter the tags you would like to assign to this content in the box below. To clear all tags for this content, %s.', true), '<a href="#" onclick="$(\'ImageMassTags\').value = \'\'; mass_tag_do(); return false;">' . __('click here', true) . '</a>'); ?></p>
+
+	<form action="#" method="post" onsubmit="mass_tag_do(); return false;">
+		<div class="dialogue-spacer">	
+			<?php e($form->textarea('Image/mass_tags', array('cols' => 40, 'rows' => 2, 'class' => 'wide'))); ?>
+		</div>
+		
+		<fieldset class="nopad">
+			<button id="mass-tag-button" class="primary_lg_alt right" type="submit"><?php __('Tag content'); ?></button> <button id="mass-tag-cancel-button" class="primary_lg_alt right" type="button" onclick="Messaging.kill('image-tag-mass');"><?php __('Cancel'); ?></button>
+		</fieldset>
+	</form>
+
+<?php e($director->postDialogue()); ?>
+
+<?php if (!empty($other_albums)): ?>
+	
+	<?php e($director->preDialogue('image-copy-mass')); ?>
+				
+		<h1><?php __('Copy content to another album'); ?></h1>
+		
+		<form action="#" method="post" onsubmit="mass_copy_image(<?php e($album['Album']['id']) ?>); return false;">
+		
+		<p><?php __('Select the album you would like to copy this content to.'); ?></p>
+		
+		<div class="dialogue-spacer">		
+			<label class="inline"><?php __('Copy content to'); ?>:&nbsp;</label>
+			<select id="album-to-copy-mass">
+				<?php foreach ($other_albums as $a): ?>
+					<option value="<?php e($a['Album']['id']); ?>"><?php e($a['Album']['name']); ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+		<?php if ($user['perms'] > 1): ?>
+		<p><input type="checkbox" value="1" id="mass-move" />&nbsp;<?php __('Delete content from current album after copy'); ?></p>
+		<?php endif; ?>
+		<fieldset class="nopad">
+			<button id="mass-copy-button" class="primary_lg_alt right" type="submit"><?php __('Copy content'); ?></button> <button id="mass-copy-cancel-button" class="primary_lg_alt right" type="button" onclick="Messaging.kill('image-copy-mass'); image_to_copy = 0;"><?php __('Cancel'); ?></button>
+		</fieldset>
+		</form>
+
+	<?php e($director->postDialogue()); ?>
+
+<?php endif; ?>
+
+<script type="text/javascript">
+	var selected_id = <?php e($selected_id); ?>
+</script>

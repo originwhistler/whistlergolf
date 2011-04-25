@@ -1,0 +1,82 @@
+
+
+- if show_admin_content?
+  %p
+    %b
+      First name:
+    = h @wedding_event.first_name
+  %p
+    %b
+      Last name:
+    = h @wedding_event.last_name
+  %p
+    %b
+      Gender:
+    = h @wedding_event.gender
+  %p
+    %b
+      Email type:
+    = h @wedding_event.email_type
+  %p
+    %b
+      Email:
+    = h @wedding_event.email
+  %p
+    %b
+      Address type:
+    = h @wedding_event.address_type
+  %p
+    %b
+      Street 1:
+    = h @wedding_event.street_1
+  %p
+    %b
+      Street 2:
+    = h @wedding_event.street_2
+  %p
+    %b
+      City:
+    = h @wedding_event.city
+  %p
+    %b
+      Province:
+    = h @wedding_event.province
+  %p
+    %b
+      Country:
+    = h @wedding_event.country
+  %p
+    %b
+      Phone type:
+    = h @wedding_event.phone_type
+  %p
+    %b
+      Area code:
+    = h @wedding_event.area_code
+  %p
+    %b
+      Phone number:
+    = h @wedding_event.phone_number
+  %p
+    %b
+      Country phone:
+    = h @wedding_event.country_phone
+  %p
+    %b
+      Requested date:
+    = h @wedding_event.requested_date
+  %p
+    %b
+      Alternate date:
+    = h @wedding_event.alternate_date
+  %p
+    %b
+      Contact time:
+    = h @wedding_event.contact_time
+  %p
+    %b
+      Comments:
+    = h @wedding_event.comments
+  = link_to 'Edit', edit_wedding_event_path(@wedding_event)
+  |
+  = link_to 'Back', wedding_events_path

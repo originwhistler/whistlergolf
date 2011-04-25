@@ -1,0 +1,6 @@
+<cross-domain-policy>
+   	<allow-access-from domain="www.wgcdev.com" />
+    <allow-access-from domain="wgcdev.com" />
+    <allow-access-from domain="www.whistlergolf.com" />
+    <allow-access-from domain="whistlergolf.com" />
+</cross-domain-policy>

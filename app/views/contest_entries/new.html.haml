@@ -1,0 +1,7 @@
+%h1= contest_title
+%p= contest_description
+- form_for(@contest_entry) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p
+    = f.submit "Enter Contest"
+

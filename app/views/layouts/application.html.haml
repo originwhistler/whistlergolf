@@ -1,0 +1,84 @@
+!!!
+%html{ :lang => "en" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{:name => 'title', :content => "#{@meta_title}"}
+    %meta{:name => 'description', :content => "#{@meta_description}"}
+    %meta{:name => 'keywords', :content => "#{@meta_keywords}"}
+    %title
+      Whistler Golf Club
+      = page_title
+      
+    = stylesheet_link_tag 'blueprint', 'whistler', 'forms', 'accordion', 'jquery-ui-1.8.11.custom'
+    <!--[if lte IE 6]>
+    = stylesheet_link_tag 'ie6'
+    <![endif]-->
+    = javascript_include_tag 'prototype', 'effects', 'application', 'swfobject', 'lightwindow', 'qtobject', 'accordion', 'scriptaculous', 'jquery', 'jquery.tweet', 'jquery.vticker', 'jquery.mobiledetect', 'cookie', 'jquery-ui-1.8.11.custom.min' 
+    %link{ :href => "/javascripts/lightwindow/css/lightwindow.css", :title => "no title", :rel => "stylesheet", :type => "text/css", :media => "screen", :charset => "utf-8" }
+    
+    %script{ :type => "text/javascript" }
+      jQuery.noConflict();
+      = mobile_detect
+      = twitter_feed
+      
+      
+  
+  %body
+    #site{:class => page_css_class}
+
+      #masthead
+        = link_to(image_tag("/images/layout/logo.gif"), root_path, :id => 'logo')
+        = link_to(content_tag(:span, "Sign Up For Specials"), "http://echo.bluehornet.com/clients/whistler_golf/survey.htm", :id => 'specials')
+        / = link_to(content_tag(:span, "Sign Up For Specials"), new_sign_up_path, :id => 'specials')
+        #nav{:class => section_page}
+          = render 'shared/nav'
+
+      #branding
+        = yield :branding
+        = render 'shared/booking'
+      #content
+        
+        #main
+          = render_flash_messages
+          = yield
+        #side
+          #topside
+            = render 'shared/news' unless section_page != 'home'
+            = render 'shared/twitter_feed' unless section_page == 'home'
+          
+          = yield :side
+          
+          = render 'banners/ads_default' unless section_page == 'home' or section_page == 'course' or section_page == 'facilities' or section_page == 'events' or section_page == 'rates' or section_page == 'stay-play'
+          = render 'banners/ads_course' if section_page == 'course'
+          = render 'banners/ads_facilities' if section_page == 'facilities'
+          = render 'banners/ads_group' if section_page == 'events'
+          = render 'banners/ads_rates' if section_page == 'rates'
+          = render 'banners/ads_stay' if section_page == 'stay-play'
+          .clear
+          
+        #promo_bar
+          = render 'banners/ads_home' if section_page == 'home'
+          / = yield :promo_bar 	      
+            
+          / - unless @page_class == 'home'
+
+          /   %ul.large_arrow_list
+          /     %li
+          /       = link_to "Further Links if required", '/'
+          /     %li
+          /       = link_to "Further Links if required", '/'
+          /     %li
+          /       = link_to "Further Links if required", '/'
+          /     %li
+          /       = link_to "Further Links if required", '/'
+          /     %li
+          /       = link_to "Further Links if required", '/'
+          /     %li
+          /       = link_to "Further Links if required", '/'
+         
+  	    
+      #footer
+        = render "shared/footer"
+        = render "shared/google_analytics"
+        
+      

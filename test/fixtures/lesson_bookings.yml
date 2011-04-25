@@ -1,0 +1,30 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  address: MyString
+  city: MyString
+  province_state: MyString
+  country: MyString
+  phone_number: MyString
+  email: MyString
+  lesson: false
+  preferred_day: MyString
+  preferred_time: MyString
+  clinic_number: MyString
+  golf_school_number: MyString
+
+
+two:
+  name: MyString
+  address: MyString
+  city: MyString
+  province_state: MyString
+  country: MyString
+  phone_number: MyString
+  email: MyString
+  lesson: false
+  preferred_day: MyString
+  preferred_time: MyString
+  clinic_number: MyString
+  golf_school_number: MyString

@@ -1,0 +1,11 @@
+%h1
+  Welcome, 
+  = @player.email if @player
+
+- booking_link = Content.find_by_title('Players Club Booking Link')
+- if booking_link
+  %h2=link_to "BOOK PLAYERS' CLUB TEE TIME NOW", booking_link.text, :class => 'lightwindow booking_link', :params => 'lightwindow_width=805'
+
+%p= player_content('Players Club Booking Info')
+
+%p= player_content("Players' Club Content")

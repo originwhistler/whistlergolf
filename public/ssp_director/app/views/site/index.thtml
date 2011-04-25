@@ -1,0 +1,393 @@
+<div id="page">
+
+	<div id="container">
+           
+		<div id="head">	
+			<h1 class="snapshot"><?php __('Snapshot'); ?></h1>
+		</div>
+		
+		<div id="container-wrap">
+		
+			<div class="col-wrap">
+				
+				<?php if (!$writable || !$xdom): ?>
+
+				<div id="alert">
+					<div class="error">
+						<div class="tr"></div>
+						<div class="content">
+							<div class="fluid icon">
+								<?php if (!$writable): ?>
+									<?php printf(__("Before you can use Director to its fullest potential, the albums and album-audio folders in your installation need to be writable by the web server. For more information on how to set these permissions, consult the Director user guide.", true), ALBUMS); ?>
+								<?php else: ?>
+										<?php printf(__("It does not appear that you have created a crossdomain.xml file for this domain. Without this file, your slideshows may not load correctly when uploaded to your site. For more information, %s.", true), $html->link(__('click here', true), 'http://wiki.slideshowpro.net/SSPfl/CP-Crossdomain')); ?>
+								<?php endif; ?>
+							</div>
+						</div>
+						<div class="bl"><div class="br"></div></div>
+					</div>
+				</div>
+				
+				<script type="text/javascript" charset="utf-8">
+					new Effect.Pulsate('alert');
+				</script>
+				
+				<?php endif; ?>
+				
+				<div class="header-radius">
+					<div class="tr"></div>
+					<div class="content">
+
+						<?php e($director->avatar(CUR_USER_ID, 26, 26, $user['anchor'])); ?>
+						
+						<h6><?php __('Hello'); ?> <?php e($html->link($user['usr'], '/users/profile', array('title' => ''))); ?>!</h6>
+							<span class="subtext"><?php e($user['role']); ?>. <?php printf(__('You have uploaded %s images since your account was created on %s.', true), number_format($image_count), $director->_date(__('%m/%d/%Y', true), $user['created_on'])); ?> <?php if (isset($last_visit)): printf(__('The last time we saw you was on %s.', true), $director->_date(__('%m/%d/%Y', true), $last_visit)); endif; ?></span>
+					</div>
+					<div class="bl"><div class="br"></div></div>
+				</div>
+					
+				<div id="dash-left-col">
+					
+							<div class="inner-left">
+														
+								<div class="module">
+									
+									<div class="module-head">
+										<h3><?php __('Shortcuts'); ?></h3>
+									</div>
+									
+									<div class="wrap">
+										
+										<div class="content">
+
+											<ul class="dash-strip module-first">
+												<?php if ($writable): ?>
+												<li><a href="#" onclick="Messaging.dialogue('quick-upload'); return false;" title="<?php __('Upload content'); ?>" class="icon_label_uploadimg"><?php __('Upload content'); ?></a></li>
+												<?php endif; ?>
+												<?php if ($user['perms'] > 1 && $writable): ?>
+												<li><a href="#" onclick="Messaging.dialogue('add-album'); Director.Interface.focusDelay('AlbumName', 0.5); return false;" title="<?php __('Create a new album'); ?>" class="icon_label_newalbum"><?php __('Create a new album'); ?></a></li>
+												<?php endif; ?>
+												<?php if ($user['perms'] > 1): ?>
+												<li><a href="#" onclick="Messaging.dialogue('add-gallery'); Director.Interface.focusDelay('GalleryName', 0.5); return false;" title="<?php __('Create a new gallery'); ?>" class="icon_label_newgallery"><?php __('Create a new gallery'); ?></a></li>
+												<?php endif; ?>
+												<li><?php e($html->link(__('Edit your profile', true), '/users/profile', array('title' => __('Edit your profile', true), 'class' => 'icon_label_profile'))); ?></li>
+											</ul>
+											
+										</div> <!--close content-->
+
+									</div> <!--close module wrap-->
+
+									<div class="module-footer">
+										<div>&nbsp;</div>
+									</div>
+
+								</div> <!--close module-->
+								
+								<?php if ($user['help']): ?>
+
+								<div class="module" id="dash-help">
+
+									<div class="module-head">
+										
+										<button type="button" title="Copy" class="primary_sm right" onclick="dismiss_help(<?php e(CUR_USER_ID) ?>);"><?php __('Dismiss'); ?></button>
+										
+										<h3><?php __('Recent help docs'); ?></h3>
+									</div>
+
+									<div class="wrap">
+
+										<div class="content">
+
+											<p class="halfstep">
+											<?php __('The latest'); ?>
+											<a href="http://wiki.slideshowpro.net/" title="<?php __('Wiki'); ?>" target="_blank">wiki</a> updates and revisions.
+											</p>
+
+											<ul class="dash-strip">
+
+												<?php for ($i=0; $i<4; $i++): ?>
+													<li><h5><a class="icon_label_doc" href="<?php e($quicks[$i]['link']) ?>" title="<?php e($quicks[$i]['title']); ?>" target="_blank"><?php e($quicks[$i]['title']); ?></a></h5>
+														
+														</li>
+												<?php endfor; ?>
+												
+											</ul>
+
+										</div>
+
+									</div> <!--close module wrap-->
+
+									<div class="module-footer">
+										<div>&nbsp;</div>
+									</div>
+
+								</div> <!--close module-->
+
+								<?php endif; ?>
+
+							</div>
+						
+					
+						<div class="inner-right">
+					
+							<div class="module">
+							
+								<div class="module-head">
+									<h3><?php __('Recently uploaded content'); ?></h3>
+								</div>
+					
+								<div class="wrap">
+						
+									<div class="content">
+										
+										<?php if (empty($news)) { $max = 24; } else { $max = 16; } ?>
+										<?php e($director->recentList($recent_images, $max, 84, 63)); ?>
+																
+									</div>
+									
+								</div> <!--close module wrap-->
+					
+								<div class="module-footer">
+									<div>&nbsp;</div>
+								</div>
+				
+							</div> <!--close module-->
+					
+							<?php if (!empty($news)): ?>
+
+							<div class="module" id="news">
+
+								<div class="module-head">
+								   
+									
+											<button type="button" title="Copy" class="primary_sm right" onclick="dismiss_news(<?php e(CUR_USER_ID) ?>); return false;"><?php __('Dismiss'); ?></button>
+									
+									
+									<h3><?php __('SlideShowPro News'); ?></h3>
+								</div>
+							
+								<div class="wrap">
+
+									<div class="content">
+                                               										
+										<h5><?php e($html->link(str_replace('&apos;', "'", html_entity_decode($news['title'], ENT_QUOTES)), $news['link'], array('target' => '_blank'))); ?>&nbsp;&nbsp;<span class="news-date"><?php e(date('F jS, Y', strtotime($news['date']))); ?></span></h5>
+
+										<?php e($controller->Director->autop(str_replace('&apos;', "'", html_entity_decode($news['description'], ENT_QUOTES)) . $html->link('More', $news['link']))); ?>
+
+										<p><a href="http://www.slideshowpro.net/news/index.xml" title="<?php __('Subscribe to SlideShowPro news via RSS'); ?>" class="icon_label_feed"><?php __('Subscribe to news'); ?></a></p>
+
+									</div>
+
+								</div> <!--close module wrap-->
+
+								<div class="module-footer">
+									<div>&nbsp;</div>
+								</div>
+
+							</div> <!--close module-->
+
+							<?php endif; ?>
+							
+						</div>
+									
+				</div> <!--close left-col-->
+		
+				<div id="dash-right-col">
+					
+					<div class="inner">
+						
+						<!-- GALLERY DATA FEEDS MODULE-->
+						<div class="module">
+							
+							<div class="module-head">
+								<h3><?php __('Gallery data feeds'); ?> <span class="help">[?]<span><?php __('Click the "Copy" button to copy the XML URL for a gallery to your clipboard. Assign it as SlideShowPro\'s XML File Path in the Component Inspector to load.'); ?></span></span></h3>
+							</div>
+							
+							<div class="wrap">
+
+								<div class="content" id="galleries-list">									
+									<?php e($this->renderElement('galleries_list_dash')); ?>
+								</div>
+
+							</div> <!--close module wrap-->
+
+							<div class="module-footer">
+								<div>&nbsp;</div>
+							</div>
+
+						</div> <!--close module-->
+						
+						
+						<!-- ALBUM DATA FEEDS MODULE-->
+						<div class="module">
+							
+							<div class="module-head">
+								<h3><?php __('Album data feeds'); ?> <span class="help">[?]<span><?php __('Click the "Copy" button to copy the XML URL for an album to your clipboard. Assign it as SlideShowPro\'s XML File Path in the Component Inspector to load.'); ?></span></span></h3>
+							</div>
+							
+							<div class="wrap">
+
+								<div class="content" id="albums-list">			
+									<?php e($this->renderElement('albums_list_dash')); ?>
+								</div>
+
+							</div> <!--close module wrap-->
+
+							<div class="module-footer">
+								<div>&nbsp;</div>
+							</div>
+
+						</div> <!--close module-->
+														
+					</div>
+				
+				</div> <!--close right-col-->
+
+			</div> <!--close colwrap-->
+			
+			<div class="clear"></div>
+
+		</div> <!--close container-wrap-->
+
+		<div id="container-footer">
+			<div>&nbsp;</div>
+		</div>
+
+	</div><!--close container-->
+
+</div> <!--close page-->
+
+<script type="text/javascript">
+	var cur_user = <?php e(CUR_USER_ID); ?>;
+	var aid = 0;
+</script>
+<?php
+	e($asset->js('upload'));
+?>
+
+<?php e($director->preDialogue('quick-upload')); ?>
+				
+	<h1><?php __('Upload content'); ?></h1>
+
+	<p><?php __('This shortcut is for quickly uploading images and videos to an existing album'); ?>.<?php if ($user['perms'] > 1): ?> <?php __('Need to create a new album?'); ?> <a href="#" onclick="Director.Interface.toggle('quick-up-form'); Director.Interface.focusDelay('AlbumName2', 0.5); return false;"><?php __('Click here'); ?></a>.</p><?php endif; ?>
+
+
+	<form id="quick-up-form" action="#" onsubmit="add_album_quick(this); return false;" style="display:none;">
+				
+		<fieldset>
+				<label><?php __('New album title'); ?>:</label>
+				<?php e($form->text('Album/name', array('id' => 'AlbumName2', 'class' => 'wide', 'onkeyup' => "if (this.value == '') { $('create-q-album-btn').disabled = true; } else { $('create-q-album-btn').disabled = false; }"))); ?>
+		</fieldset>
+
+		<fieldset>
+			
+			 <button disabled="true" id="create-q-album-btn" type="submit" title="<?php __('Create album and browse for images'); ?>" class="primary_lg_alt right"><?php __('Create album and browse for images'); ?></button>           
+			
+		</fieldset>
+		
+	</form>
+
+	<div class="dialogue-spacer">
+
+	<fieldset class="nopad">
+		<label><?php __('Choose an album'); ?>:</label>
+		<select id="upload-tgt" onchange="upload_set_aid($F('upload-tgt'))">
+			<?php e($this->renderElement('target_collection')); ?>
+		</select>
+	</fieldset>
+	
+	</div>
+	
+	<p id="upload-stat" style="display:none;margin-bottom:0;"></p>
+
+	<div class="dialogue-spacer" id="upload-tag" style="display:none">
+
+	<fieldset>
+		<label><?php __('Assign tags (comma separated, optional)'); ?>:</label>
+		<?php e($form->textarea('Image/tags', array('cols' => 40, 'rows' => 2, 'class' => 'wide'))); ?>
+	</fieldset>
+	
+	</div>
+	
+	<fieldset class="nopad"> 
+		
+		 <button id="upload-button" type="button" onclick="upload_dash();" title="<?php __('Upload content'); ?>" class="primary_lg_alt right nudgeL" style="display:none;"><?php __('Upload content'); ?></button>  
+		  
+		<div id="browse_wrapper" style="display:block;float:right;position:relative;margin-top:0;"><button id="browse-button" type="button" onclick="return false;" title="<?php __('Browse for content'); ?>" class="primary_lg_alt right nudgeL" style="display:none;"><?php __('Browse for content'); ?></button><div id="flash_target" style="position:absolute;top:0;right:0;z-index:1000;"></div></div>
+	  
+	<button type="button" onclick="kill_quick_upload();" title="<?php __('Cancel'); ?>" class="primary_lg_alt right"><?php __('Cancel'); ?></button> 
+	 
+    
+	
+	</fieldset>
+
+<?php e($director->postDialogue()); ?>
+
+<script type="text/javascript">
+	swf_path = "<?php e($this->webroot . 'swf/upload.swf?gdsgsdgs' . DIR_VERSION); ?>";
+	upload_url = '<?php e($html->url('/uploads/image/' . CUR_USER_ID)); ?>';
+	max_size = <?php e(MAX_SIZE); ?>;
+</script>
+
+<?php e($director->preDialogue('add-album')); ?>
+				
+	<h1><?php __('Add album'); ?></h1> 
+	
+	<p><?php __('This shortcut creates a new album for you to upload content to.'); ?></p>
+
+	<form action="#" onsubmit="add_album_dash(this); return false;">
+		
+		<div class="dialogue-spacer">
+		
+		<fieldset>
+				<label class="white"><?php __('New album title'); ?>:</label>
+				<?php e($form->text('Album/name', array('class' => 'wide', 'onkeyup' => "if (this.value == '') { $('create-album-btn').disabled = true; } else { $('create-album-btn').disabled = false; }"))); ?>
+		</fieldset>
+		
+		<fieldset class="nopad">
+			<input class="radio" type="checkbox" value="1" name="follow" checked="checked" /> <?php __('Edit album after it has been created'); ?>
+		</fieldset>
+		
+		</div>
+
+		<fieldset class="nopad">
+									
+			 <button disabled="true" id="create-album-btn" type="submit" title="<?php __('Create album'); ?>" class="primary_lg_alt right nudgeR"><?php __('Create album'); ?></button> 
+			
+			<button type="button" onclick="Messaging.kill('add-album'); return false;" title="<?php __('Cancel'); ?>" class="primary_lg_alt right nudgeR"><?php __('Cancel'); ?></button> 
+				
+		</fieldset>
+	</form>
+
+<?php e($director->postDialogue()); ?>
+
+<?php e($director->preDialogue('add-gallery')); ?>
+				
+	<h1><?php __('Add gallery'); ?></h1>
+	
+	<p><?php __('This shortcut creates a new gallery for you to add albums to.'); ?></p>
+
+	<form action="#" onsubmit="add_gallery_dash(this); return false;">
+		
+		<div class="dialogue-spacer">
+			
+		<fieldset>
+				<label class="white"><?php __('New gallery title'); ?>:</label>
+				<?php e($form->text('Gallery/name', array('class' => 'wide', 'onkeyup' => "if (this.value == '') { $('create-gallery-btn').disabled = true; } else { $('create-gallery-btn').disabled = false; }"))); ?>
+		</fieldset>
+
+		<fieldset class="nopad">
+			<input class="radio" type="checkbox" value="1" name="follow" checked="checked" /> <?php __('Edit gallery after it has been created'); ?>
+		</fieldset>
+		
+		</div>
+		
+		
+		<fieldset class="nopad">
+<button disabled="true" id="create-gallery-btn" type="submit" title="<?php __('Create gallery'); ?>" class="primary_lg_alt right nudgeR"><?php __('Create gallery'); ?></button><button type="button" title="<?php __('Cancel'); ?>" onclick="Messaging.kill('add-gallery'); return false;" class="primary_lg_alt right nudgeR"><?php __('Cancel'); ?></button>     
+		</fieldset>
+	</form>
+
+<?php e($director->postDialogue()); ?>
+
+<div id="viewer" style="float:left;width:1px;height:1px;"></div>

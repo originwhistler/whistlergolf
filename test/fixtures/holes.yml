@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: 1
+  par: 1
+  tournament_tees: 1
+  palmer_tees: 1
+  white_tees: 1
+  forward_tees: 1
+  handicap_mens: 1
+  handicap_womens: 1
+  description: MyText
+
+two:
+  number: 1
+  par: 1
+  tournament_tees: 1
+  palmer_tees: 1
+  white_tees: 1
+  forward_tees: 1
+  handicap_mens: 1
+  handicap_womens: 1
+  description: MyText

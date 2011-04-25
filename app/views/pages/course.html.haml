@@ -1,0 +1,135 @@
+= render :partial => "pages/course/sidebar"
+      
+
+
+%h1 A NEW BRAND OF GOLF
+%p 
+  Welcome to Arnold Palmer’s first Canadian design, and home to a truly
+  “Whistler” brand of golf. You’ll sense it the minute you approach the Clubhouse
+  — classic rock and roll is piped out from the entrance, a guest host sporting a
+  wide grin and a friendly attitude greets you, introduces herself, takes your
+  clubs and acquaints you with our facility. For the rest of your day–from the
+  high-five you got from the starter on the first tee, to the Player’s Assistant
+  who tended your flag, to the bartender at the patio bar who commiserated with
+  you after your round — you’ll notice that a game of golf at the Whistler Golf
+  Club is truly something different.
+= testimonial "#1 Golf Destination in Canada", "Golf Digest"
+%p 
+  While the spectacular views, signature design and uncompromising course conditions
+  are standard fare; it is the friendly, relaxed and helpful personality of the
+  course staff that makes a Whistler Golf Club experience uniquely Whistler.
+= testimonial "Top 20 Greatest Golf Destinations", "Golf Digest"
+%p 
+  Stand on the first tee of the Whistler Golf Club and instantly you’ll
+  understand why Arnold Palmer chose it as the location for his first Canadian
+  design. Snow-capped peaks surround the course in all directions, ancient cedars
+  and majestic fir trees line the fairways, winding streams, nine lakes and white
+  sand bunkers punctuate perfectly manicured greens and an occasional black bear
+  sauntering across a fairway is not an uncommon site.
+
+%p 
+  The Whistler Golf Club is a par 71, 18-hole, golf course that easily
+  exceeds the expectations of the most discriminating golfer. In 2000 the
+  Whistler Golf Club received an extensive $2.2 million renovation to ensure
+  this 6722-yard course continues its legacy of excellence.
+  
+%h2 The Course Details
+- @front_nine = Hole.front_nine
+%table
+  %tr
+    %th{:colspan => 11} Whistler Golf Club Details: Front Nine
+  %tr
+    %td.title{:style => 'width: 130px'} Hole
+    - @front_nine.each do |hole|
+      %td.title{:style => 'width: 30px'}= hole.number
+    %td.title{:style => 'width: 60px'} OUT
+  %tr
+    %td.label Par
+    - @front_nine.each do |hole|
+      %td= hole.par
+    %td= out_for :par
+  %tr
+    %td.label.tournament Tournament
+    - @front_nine.each do |hole|
+      %td= hole.tournament_tees
+    %td= out_for :tournament_tees 
+  %tr
+    %td.label.palmer Palmer
+    - @front_nine.each do |hole|
+      %td= hole.palmer_tees
+    %td= out_for :palmer_tees
+  %tr
+    %td.label.white White
+    - @front_nine.each do |hole|
+      %td= hole.white_tees
+    %td= out_for :white_tees
+  %tr
+    %td.label.forward Forward
+    - @front_nine.each do |hole|
+      %td= hole.forward_tees
+    %td= out_for :forward_tees
+  %tr
+    %td.label Men's HCP
+    - @front_nine.each do |hole|
+      %td= hole.handicap_mens
+    %td  - 
+  %tr
+    %td.label Women's HCP
+    - @front_nine.each do |hole|
+      %td= hole.handicap_womens
+    %td  - 
+
+
+- @back_nine = Hole.back_nine
+%table
+  %tr
+    %th{:colspan => 12} Whistler Golf Club Details: Back Nine
+  %tr
+    %td.title{:style => 'width: 140px; padding: 0; text-align: center;'} Hole
+    - @back_nine.each do |hole|
+      %td.title{:style => 'width: 30px'}= hole.number
+    %td.title{:style => 'width: 30px'} IN
+    %td.title{:style => 'width: 30px'} TTL
+  %tr
+    %td.label Par
+    - @back_nine.each do |hole|
+      %td= hole.par
+    %td= in_for :par
+    %td= ttl_for :par
+  %tr
+    %td.label.tournament Tournament
+    - @back_nine.each do |hole|
+      %td= hole.tournament_tees
+    %td= in_for :tournament_tees 
+    %td= ttl_for :tournament_tees 
+  %tr
+    %td.label.palmer Palmer
+    - @back_nine.each do |hole|
+      %td= hole.palmer_tees
+    %td= in_for :palmer_tees
+    %td= ttl_for :palmer_tees
+  %tr
+    %td.label.white White
+    - @back_nine.each do |hole|
+      %td= hole.white_tees
+    %td= in_for :white_tees
+    %td= ttl_for :white_tees
+  %tr
+    %td.label.forward Forward
+    - @back_nine.each do |hole|
+      %td= hole.forward_tees
+    %td= in_for :forward_tees
+    %td= ttl_for :forward_tees
+  %tr
+    %td.label Men's HCP
+    - @back_nine.each do |hole|
+      %td= hole.handicap_mens
+    %td  - 
+    %td  - 
+  %tr
+    %td.label Women's HCP
+    - @back_nine.each do |hole|
+      %td= hole.handicap_womens
+    %td  - 
+    %td  - 
+    

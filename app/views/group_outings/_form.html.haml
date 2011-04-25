@@ -1,0 +1,99 @@
+= f.error_messages
+%fieldset
+  %legend 
+    Contact Info
+  %p.field-first
+    = f.label :first_name
+    = f.text_field :first_name
+  
+  %p.field-last
+    = f.label :last_name
+    = f.text_field :last_name
+
+
+  / %p.field-email-type
+  /   = f.label :email_type
+  /   = f.text_field :email_type
+
+  %p.field-email
+    = f.label :email
+    = f.text_field :email
+      
+  .clear
+
+  / %p.field-phone-type.small
+  /   = f.label :phone_type
+  /   = f.select :phone_type, ['Cell','Office','Home']
+
+  %p.field-area-code
+    = f.label :area_code
+    = f.text_field :area_code
+
+  %p.field-phone
+    = f.label :phone_number
+    = f.text_field :phone_number
+
+  .clear
+
+  / %p.field-address-type
+  /   = f.label :address_type
+  /   = f.select :address_type, ['Office','Home']
+
+  %p.field-address
+    = f.label :street_2, "Street"
+    = f.text_field :street_2
+
+  %p.field-address
+    = f.label :street_2, " "
+    = f.text_field :street_2
+  
+  %p.field-city
+    = f.label :city
+    = f.text_field :city
+
+  %p.field-province
+    = f.label :province
+    = f.text_field :province
+
+  %p.field-country
+    = f.label :country
+    = country_select("group_outing", "country", ["Canada", "United States"])
+
+  %p.field-postal
+    = f.label :postal_code
+    = f.text_field :postal_code
+
+%fieldset
+  %legend 
+    Event Info
+  %p.field-event-length
+    = f.label :event_length, "Date Requested"
+    = f.text_field :event_length
+  
+  %p.field-num-attendees
+    = f.label :number_of_attendees, "Number of Players"
+    = f.text_field :number_of_attendees
+  
+
+  / %p.field-checkbox
+  /   = f.label :held_event_before
+  /   = f.check_box :held_event_before
+  / 
+  / 
+  / %p.field-checkbox
+  /   = f.label :decision_maker
+  /   = f.check_box :decision_maker
+  /   
+  / %p.field-contact
+  /   = f.label :contact_method
+  /   = f.text_field :contact_method
+  
+  %p.field-textarea
+    = f.label :comments
+    = f.text_area :comments
+
+  .clear
+  %p.field-referred
+    = f.label :referred_by
+    = f.text_field :referred_by
+

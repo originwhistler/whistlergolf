@@ -1,0 +1,4 @@
+- if current_user
+  %p{:style => "float: left"}
+    = "Logged in as: #{current_user.email}"
+    = link_to "Logout", logout_path

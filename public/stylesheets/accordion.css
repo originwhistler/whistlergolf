@@ -1,0 +1,45 @@
+div#programs-accordion{
+    margin: 15px 0 20px 0;
+    /*border: 1px solid #aaa;*/
+}
+
+div.accordion {
+	position: relative; /* required for bounding */
+}
+
+div.accordion-toggle{
+    position: relative; /* required for effect */
+    z-index: 10;		/* required for effect */
+	background: #FFFFFF;
+	background-image:url(/images/layout/toggle-off.gif);
+	background-repeat:no-repeat;
+	height:20px;
+	color:#444444;   
+    cursor: pointer;
+    font-size : 13px;
+    padding:4px 0 0 15px;
+}
+
+div.accordion-toggle:hover, div.accordion-toggle-active{
+	background-image:url(/images/layout/toggle-on.gif);
+	background-color:#6f7578;
+	color:#FFFFFF;
+}
+
+div.accordion-content{
+    overflow: hidden;	/* required for effect */
+    /*background: #aaa;*/
+}
+
+div.last{
+	display:none;	
+}
+
+div#programs-accordion h2{
+    margin : 20px 0 0 0;
+}
+
+div#programs-accordion h3{
+	margin : 10px 0 5px 0;
+    color : #363636;
+}

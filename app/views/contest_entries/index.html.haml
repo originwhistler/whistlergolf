@@ -1,0 +1,47 @@
+%h1
+  Listing contest_entries
+%table
+  %tr
+    %th
+      First name
+    %th
+      Last name
+    %th
+      Telephone
+    %th
+      Email
+    %th
+      Group organizer
+    %th
+      Large group
+    %th
+      Comments
+    %th
+      Agree to terms
+  - for contest_entry in @contest_entries
+    %tr
+      %td
+        = h contest_entry.first_name
+      %td
+        = h contest_entry.last_name
+      %td
+        = h contest_entry.telephone
+      %td
+        = h contest_entry.email
+      %td
+        = h contest_entry.group_organizer
+      %td
+        = h contest_entry.large_group
+      %td
+        = h contest_entry.comments
+      %td
+        = h contest_entry.agree_to_terms
+      %td
+        = link_to 'Show', contest_entry
+      %td
+        = link_to 'Edit', edit_contest_entry_path(contest_entry)
+      %td
+        = link_to 'Destroy', contest_entry, :confirm => 'Are you sure?', :method => :delete
+
+%br/
+= link_to 'New contest_entry', new_contest_entry_path

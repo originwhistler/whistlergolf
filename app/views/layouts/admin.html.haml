@@ -1,0 +1,21 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=ISO-8859-1", "http-equiv" => "Content-Type" }/
+    %title
+      Whistler Golf Club
+    = stylesheet_link_tag 'admin', 'forms'
+    = javascript_include_tag :defaults, 'wmd/wmd'
+    = javascript_include_tag :defaults
+    
+    
+  %body
+    .wrapper
+      %h1.logo
+        Whistler Golf Club
+      .clear
+      .content
+        = render_flash_messages
+        = yield
+        %p=link_to "Back To Main Site", root_url
+        %p=link_to "Log Out", logout_url

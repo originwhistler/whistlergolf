@@ -1,0 +1,2 @@
+module GroupOutingsHelper
+end

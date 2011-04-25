@@ -1,0 +1,29 @@
+%h1
+  Listing wedding_events
+%table
+  %tr
+    %th
+      First name
+    %th
+      Last name
+    %th
+      Email
+    %th
+
+  - for wedding_event in @wedding_events
+    %tr
+      %td
+        = h wedding_event.first_name
+      %td
+        = h wedding_event.last_name
+      %td
+        = h wedding_event.email
+      %td
+        = link_to 'Show', wedding_event
+      %td
+        = link_to 'Edit', edit_wedding_event_path(wedding_event)
+      %td
+        = link_to 'Destroy', wedding_event, :confirm => 'Are you sure?', :method => :delete
+
+%br/
+= link_to 'New wedding_event', new_wedding_event_path

@@ -1,0 +1,57 @@
+- @page_class = 'wide hole_detail'
+- unless @hole.nil?
+  .hole_bar
+    %h2 Whistler Golf Club Course Guide
+    .pagination
+      = link_to "<span>&lt;</span>", "/holes/#{@hole.number - 1}", :class => 'prev' unless @hole.number == 1
+      = content_tag 'span', "#{@hole.number}/18"
+      = link_to "<span>&gt;</span>", "/holes/#{@hole.number + 1}", :class => 'next' unless @hole.number == 18
+      
+      
+  .hole
+    .hole_map
+      =image_tag(detail_image_for(@hole))
+      
+    .hole_details
+      .hole_detail_block
+        %h1=@hole.name
+        %p=@hole.description
+        =image_tag(image_for(@hole))
+
+      .video
+        %h3 PLAY VIDEO TO VIEW FLY-OVER
+        = video_for(@hole)
+    
+    
+      %table
+        %tr
+          %th{:colspan => 2} Par & Handicaps
+        %tr
+          %td Par
+          %td{:width => 32}= @hole.par
+        %tr
+          %td Men's Handicap	
+          %td= @hole.handicap_mens
+        %tr
+          %td Women's Handicap
+          %td= @hole.handicap_womens
+
+
+      %table
+        %tr
+          %th{:colspan => 2} Yardage
+        %tr
+          %td Tournament Tees
+          %td= @hole.tournament_tees
+        %tr
+          %td Palmer Tees
+          %td= @hole.palmer_tees
+        %tr
+          %td White Tees
+          %td= @hole.white_tees
+        %tr
+          %td Forward Tees
+          %td= @hole.forward_tees
+
+      
+      

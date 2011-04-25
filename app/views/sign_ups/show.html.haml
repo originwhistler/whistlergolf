@@ -1,0 +1,39 @@
+%p
+  %b
+    First name:
+  = h @sign_up.first_name
+%p
+  %b
+    Last name:
+  = h @sign_up.last_name
+%p
+  %b
+    Street address:
+  = h @sign_up.street_address
+%p
+  %b
+    City:
+  = h @sign_up.city
+%p
+  %b
+    Province:
+  = h @sign_up.province
+%p
+  %b
+    Postal code:
+  = h @sign_up.postal_code
+%p
+  %b
+    Telephone:
+  = h @sign_up.telephone
+%p
+  %b
+    Email:
+  = h @sign_up.email
+%p
+  %b
+    Type:
+  = h @sign_up.type
+= link_to 'Edit', edit_sign_up_path(@sign_up)
+|
+= link_to 'Back', sign_ups_path

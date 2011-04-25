@@ -1,0 +1,9 @@
+<p><?php __('The five most recently updated galleries.'); ?></p>
+
+
+<ul class="dash-strip module-first">
+	<?php foreach ($galleries as $gallery): ?>
+	<?php $id = 'clip_wrap_gallery_' . $gallery['Gallery']['id']; ?>
+	<li class="clearfix"><span style="float:left;" class="icon_label_gallery"><?php e($html->link(__($gallery['Gallery']['name'], true), "/galleries/edit/{$gallery['Gallery']['id']}")); ?></span><div id="<?php e($id) ?>" class="copier"><span id="<?php e($id); ?>_tocopy" style="display:none;"><?php e(DATA_LINK . '?gallery=' . $gallery['Gallery']['id']) ?></span><button id="<?php e($id) ?>_button" type="submit" title="<?php __('Copy'); ?>" class="primary_sm right"><?php __('Copy'); ?></button><div id="<?php e($id) ?>_target" style="position:absolute;top:0;left:0;z-index:1000;"></div></div></li>	
+	<?php endforeach; ?>
+</ul>

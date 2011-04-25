@@ -1,0 +1,26 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  text: MyText
+
+two:
+  title: MyString
+  text: MyText
+
+
+group_confirm:
+  title: "Group Outing Confirmation Email"
+  text: "Blah Group"
+  
+wedding_confirm:
+  title: "Wedding Event Confirmation Email"
+  text: "Blah Wedding"
+    
+player_confirm:
+  title: "Player Confirmation Email"
+  text: "Blah Player"
+    
+passholder_confirm:
+  title: "Passholder Confirmation"
+  text: "Blah Passholder"

@@ -1,0 +1,21 @@
+%h2 Login
+= error_messages_for :passholder if @passholder
+= error_messages_for :user if @user
+- form_tag session_path do
+  %p
+    = label_tag 'login'
+    = text_field_tag 'login', @login
+  %p
+    = label_tag 'password'
+    = password_field_tag 'password', nil
+    
+  - if params[:controller] == 'passholders'
+    = hidden_field_tag :passholder, true 
+  - else
+    = hidden_field_tag :user, true 
+  /
+    Uncomment this if you want this functionality
+    <p><haml:loud> label_tag 'remember_me', 'Remember me' </haml:loud>
+    <haml:loud> check_box_tag 'remember_me', '1', @remember_me </haml:loud></p>
+  %p
+    = submit_tag 'Log in'

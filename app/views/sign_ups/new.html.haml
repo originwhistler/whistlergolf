@@ -1,0 +1,13 @@
+%h1 JOIN AND RECEIVE A TWO FOR ONE GREEN FEE!
+ 
+%p The Whistler Golf Club would like to know more about our golfers in an effort to better serve our guests needs. By filling out this short survey you will be enrolled in the Whistler Golf Club EClub where you can take advantage of specials and promotions only valid to EClub members. Once you complete the survey you will receive a two for one green fee coupon by email. You will also be kept updated regularly on green fee and other specials frequently by email.
+
+- form_for(@sign_up) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  .clear
+  %p By submitting this survey you are agreeing to receive specials and promotions from the Whistler Golf Club.
+  .clear
+  %p
+    = f.submit "Submit Signup Information"
+
+/ = link_to 'Back', sign_ups_path

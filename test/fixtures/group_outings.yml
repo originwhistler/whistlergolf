@@ -1,0 +1,49 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  email_type: MyString
+  email: MyString
+  phone_type: MyString
+  area_code: MyString
+  phone_number: MyString
+  country: MyString
+  address_type: MyString
+  street_1: MyString
+  street_2: MyString
+  city: MyString
+  province: MyString
+  postal_code: MyString
+  country_address: MyString
+  event_length: MyString
+  number_of_attendees: MyString
+  held_event_before: false
+  decision_maker: false
+  contact_method: MyString
+  referred_by: MyString
+  comments: MyText
+
+two:
+  first_name: MyString
+  last_name: MyString
+  email_type: MyString
+  email: MyString
+  phone_type: MyString
+  area_code: MyString
+  phone_number: MyString
+  country: MyString
+  address_type: MyString
+  street_1: MyString
+  street_2: MyString
+  city: MyString
+  province: MyString
+  postal_code: MyString
+  country_address: MyString
+  event_length: MyString
+  number_of_attendees: MyString
+  held_event_before: false
+  decision_maker: false
+  contact_method: MyString
+  referred_by: MyString
+  comments: MyText

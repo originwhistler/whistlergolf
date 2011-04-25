@@ -1,0 +1,13 @@
+<h1>Editing hole</h1>
+
+<% form_for(@hole, :html => {:multipart => true}) do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :locals => {:f => f} %>
+    <div class="clear"></div>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @hole %> |
+<%= link_to 'Back', holes_path %>

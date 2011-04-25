@@ -1,0 +1,158 @@
+<div class="module">
+
+	<div class="module-head">
+		
+		<h3 class="yanker">&nbsp;</h3>
+		
+		<div id="edit-head">
+		
+			<div id="sort_type">
+				
+				<ul class="small-nav">
+					
+					<li class="title"><?php __('Album order'); ?>:</li>
+					
+					<li>&nbsp;<select id="sort_data" onchange="update_gallery_sort_preset(false);">
+					
+					<?php 
+						$sort = $gallery['Gallery']['sort_type']; 
+						preg_match('/\((.*)\)/', $sort, $matches);
+						if (empty($matches)) {
+							$sort_dir = '';
+						} else {
+							$sort_dir = $matches[1];
+						}
+						$id = $gallery['Gallery']['id'];
+						$options = array(array('manual', __('Manual', true)), array('album title', __('Album title', true)), array('date', __('Date created', true)), array('modified', __('Date modified', true)));
+						$out = '';
+						foreach($options as $option):
+							$out .= '<option value="' . $option[0] . '"';
+							if ($sort == $option[0] || $sort == ($option[0] . " ($sort_dir)")):
+								$out .= ' selected="selected"';
+							endif;
+							$out .= '>' . $option[1] . '</option>'; 
+						endforeach;
+						e($out);
+						$dir_sel = '';
+						if ($sort == 'manual') {
+							$sorting = true;
+							$sort_s = 'true';
+						} else {
+							$sorting = false;
+							$sort_s = 'false';
+						}
+						if (strpos($sort, 'manual') === false) {
+							$display = '';
+							if ($sort_dir == 'oldest first') {
+								$dir_sel = ' selected="selected"'; 
+							}
+						} else {
+							$display = ' style="display:none;"';
+						}
+					?></select>&nbsp;&nbsp;<select id="sort_direction" onchange="update_gallery_sort_preset(true);"<?php e($display); ?>><option id="descender" value="(newest first)"><?php __('Descending'); ?></option><option id="ascender" value="(oldest first)"<?php e($dir_sel); ?>><?php __('Ascending'); ?></option></select>
+						
+						<button id="sort_button" class="primary_sm" type="button" style="display:none" onclick="change_gallery_order_type(<?php e("$id, '$sort'"); ?>)"><?php __('Update order'); ?></button>
+					
+					</li>
+				
+				</ul>
+										
+			</div> <!-- close sort_type-->
+			
+		</div> <!--close edit-head-->
+		
+		<div class="clear"></div>
+		
+	</div> <!--close module-head-->
+	
+	<div class="wrap">
+	
+		<div class="content">
+
+				<ul id="galleries-view" class="album-view" style="padding:0;">	
+					<?php $t = count($gallery['Tag']); $n = 1; foreach($gallery['Tag'] as $album): ?>
+					
+					<li id="tag_<?php e($album['id']); ?>"<?php e(ife($sorting, ' class="sort"', '')) ?>>
+						
+						<div class="title"><h5 class="icon_label_album"><?php e($director->trunc(htmlspecialchars($album['Album']['name']), 50)); ?></h5></div>
+						
+						<div class="meta">
+							
+							<div class="album-thumb-bg">
+								<div class="album-thumb-img" style="background:<?php e($director->albumBg($album['Album']['aTn'], $album['Album']['path'])); ?>"></div>
+							</div>
+							
+							<div class="copy">
+								<?php __('No. of images'); ?>: <?php e($album['Album']['images_count']); ?><br />
+								<?php __('Created'); ?>: <?php e($director->_date(__('%m/%d/%Y', true), $album['Album']['created_on'])); ?><br />
+								<?php __('Modified'); ?>: <?php e($director->_date(__('%m/%d/%Y', true), $album['Album']['modified_on'])); ?>
+							</div>
+							
+							<div id="counter_<?php e($album['id']); ?>" class="counter"><span><?php e("$n/$t") ?></span></div>
+						</div>
+						<div class="info">
+														
+							<div class="editBttns" style="width:<?php e(ife($is_main, '22px', '44px')); ?>">
+								<a title="<?php __('Edit album'); ?>: <?php e($album['Album']['name']); ?>" class="icon edit left nudgeR" href="<?php e($html->url("/albums/edit/{$album['Album']['id']}")); ?>"></a><?php if (!$is_main): ?><a title="<?php __('Exclude album from this gallery'); ?>" class="icon active left" href="#" onclick="delete_gallery_link(<?php e($album['id']); ?>); return false;"></a><?php endif; ?>
+							</div>
+													
+						</div>
+						
+					</li>
+					
+					<?php $n++; endforeach; ?>
+					
+				</ul>
+					
+					<?php if (!empty($non_members)): ?>
+					<ul id="albums-repo" class="album-view" style="margin:0;padding:0;">	
+						<?php $t = count($gallery['Tag']); $n = 1; foreach($non_members as $album): ?>
+
+						<li id="tag_<?php e($album['Album']['id']); ?>" class="inactive">
+							<div class="title"><h5 class="icon_label_album"><?php e($director->trunc(htmlspecialchars($album['Album']['name']), 50)); ?></h5></div>
+
+							<div class="meta">
+
+								<div class="album-thumb-bg">
+									<div class="album-thumb-img" style="background:<?php e($director->albumBg($album['Album']['aTn'], $album['Album']['path'])); ?>"></div>
+								</div>
+
+								<div class="copy">
+									<?php __('No. of images'); ?>: <?php e($album['Album']['images_count']); ?><br />
+									<?php __('Created'); ?>: <?php e($director->_date(__('%m/%d/%Y', true), $album['Album']['created_on'])); ?><br />
+									<?php __('Modified'); ?>: <?php e($director->_date(__('%m/%d/%Y', true), $album['Album']['modified_on'])); ?>
+								</div>
+								
+								<div class="counter-off"><span><?php __('Excluded'); ?></span></div>
+							</div>
+
+							<div class="info">
+
+								<div class="editBttns">
+									<a title="<?php __('Edit album'); ?>: <?php e($album['Album']['name']); ?>" class="icon edit left nudgeR" href="<?php e($html->url("/albums/edit/{$album['Album']['id']}")); ?>"></a><a title="<?php __('Include album in this gallery'); ?>" class="icon inactive left" href="#" onclick="add_gallery_link(<?php e($gallery['Gallery']['id'] . ', ' . $album['Album']['id']); ?>); return false;"></a>
+								</div>
+								
+							</div>
+
+						</li>
+
+						<?php $n++; endforeach; ?>
+
+					</ul>
+					
+					<?php endif; ?>
+				
+				<?php if ($sorting): ?>
+				<script type="text/javascript">
+					gallery_sort_init();
+				</script>		
+				<?php endif; ?>	
+		</div>
+		
+	</div> <!--close module wrap-->
+	
+	<div class="module-footer">
+		<div>&nbsp;</div>
+	</div>
+	
+</div>

@@ -1,0 +1,17 @@
+#main{display: inline;}
+#side{display: inline;}
+.promo_block h2{display: inline-block;}
+.promo_block ul{width: 165px; margin-right: 0; display: inline-block;}
+.promo_block li{display: block; float: left; clear: both; width: 165px;}
+#enter_to_win h2{display: inline;}
+#news h2{display: inline; margin: 0;}
+#group{}
+a img{margin: 0;}
+form p{display: inline;}
+form label{width: 260px;}
+#masthead{position: relative;z-index: 100;}
+#nav{position: relative;z-index: 100;}
+#nav ul ul li{float: left; display: block; clear: both;}
+#nav li.hover ul{background-image: none; background: #fff;}
+
+#offer{height: 60px;}

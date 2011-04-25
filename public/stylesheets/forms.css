@@ -1,0 +1,61 @@
+
+
+/* form styles */
+form{}
+fieldset{margin:0;border:0;padding:0;margin-bottom:30px;float:left;/* background:#efefef;*/
+border-bottom:1px dashed #666;padding-bottom:20px;}
+
+legend{text-transform:uppercase;}
+
+form h3{clear:both;padding:5px 0px 10px 0px;font-size:14px;}
+form p{float: left; width: 260px; clear: none;}
+form label{display:block;width:310px;font-size:11px;line-height:14px;padding:8px 0px 4px 0px;color:#666;}
+
+form input{display:block;margin-top:3px;}
+form select{float:left;display:block;margin-top:3px;padding:2px;}
+
+form .field-date select, form .date select{width: auto;}
+
+form .small{width: 90px;}
+form p.wide{width: 450px;}
+form p.wide label{width: 450px;}
+form .small select, form .small input{width: 80px;}
+form .field-area-code{width: 80px;}
+form .field-area-code input{width: 50px;}
+form .field-phone{width: 310px;}
+form .field-phone input{width: 310px;}
+
+form .field-first input,
+form .field-last input,
+form .field-email input,
+form .field-city input,
+form .field-phone input{float:left;padding:0px;}
+
+form .field-state{float:left;margin-right:10px;width:60px;}
+form .field-state select{width:60px;float:left;margin-top:3px;}
+form .field-zip{float:left;width:80px;}
+form .field-zip input{float:left;width:80px;}
+form .field-address{float:left;width:490px;margin:0px 0px 0px 0px;}
+form .field-address input{float:left;width:480px;padding:0px;}
+
+form input.radio,
+form input#radiobutton_1,
+form input#radiobutton_2,
+form input#radiobutton_3,
+form input#radiobutton_4{clear:left;float:left;padding:0px;margin:0px 0px 0px 0px;}
+
+
+form label.radioitem{clear:none;margin:0px 0px 0px 25px;padding:0px 0px 15px 0px;}
+
+form input.checkbox,
+form input#checkbox_1,
+form input#checkbox_2,
+form input#checkbox_3{clear:both;float:left;padding:0px;margin:0px;}
+
+
+form label.field-checkbox{clear:none;margin:0px 0px 0px 25px;padding:0px 0px 15px 0px;}
+
+
+form textarea{display:block;margin-top:3px;width:470px;}
+
+
